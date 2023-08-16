@@ -1,0 +1,3 @@
+CREATE USER 'miki'@'localhost' IDENTIFIED BY '0216846822';
+GRANT ALL PRIVILEGES ON quiz.* TO 'miki'@'localhost';
+FLUSH PRIVILEGES;
