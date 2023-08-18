@@ -23,6 +23,7 @@ export class AuthService {
   }
 
   login(credentials: any): Observable<any> {
+    console.log('auth service login', credentials)
     return this.api
       .postTypeRequest('auth/login', {
         email: credentials.email,
@@ -30,6 +31,7 @@ export class AuthService {
       })
       .pipe(
         map((res: any) => {
+          console.log('login map ', res)
           const user = {
             email: credentials.email,
             token: res.token,

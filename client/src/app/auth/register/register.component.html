@@ -1,1 +1,45 @@
-<p>register works!</p>
+<div class="flex justify-content-center align-items-center h-screen ">
+  <form [formGroup]="formGroup" class="flex flex-column w-24rem">
+    <label class="flex justify-content-center mb-6" for="password">Register</label>
+<!--    TODO add photo and nickname-->
+    <p-password [feedback]="false" [inputStyle]="{'width':'100%'}" [style]="{'width':'100%'}"
+                [toggleMask]="true"
+                class="my-2"
+                formControlName="email"
+                placeholder="Email"></p-password>
+    <div *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched">
+      <small class="text-danger">Please enter a valid email address.</small>
+    </div>
+
+    <p-password [feedback]="false" [inputStyle]="{'width':'100%'}" [style]="{'width':'100%'}"
+                [toggleMask]="true"
+                class="my-2 "
+                formControlName="password"
+                placeholder="Password"
+    ></p-password>
+    <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
+      <small class="text-danger">Password is required and must be at least 6 characters long.</small>
+    </div>
+
+    <p-password [feedback]="false" [inputStyle]="{'width':'100%'}" [style]="{'width':'100%'}"
+                [toggleMask]="true"
+                class="my-2 "
+                formControlName="confirmPassword"
+                placeholder="Password"
+    ></p-password>
+    <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
+      <small class="text-danger">Password is required and must be at least 6 characters long.</small>
+    </div>
+
+
+    <p-button (click)="onSubmit()" [disabled]="!formGroup.valid"
+              [ngStyle]="{ 'width': '100%' }" label="Submit" styleClass="p-button-raised surface-900 my-4"></p-button>
+
+    <div class="flex justify-content-start sm:mt-4 lg:mt-8">
+      <p-checkbox class="pr-2" formControlName="agree" inputId="terms" value="New York"></p-checkbox>
+      <label for="terms">Agree with terms </label>
+    </div>
+    <p class="text-4xl">{{error}}</p>
+  </form>
+
+</div>
