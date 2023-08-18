@@ -36,6 +36,11 @@ app.get("/", (req, res) => {
     // res.status(200).json({message: result});
 });
 
+// Router index
+const indexRouter = require("./routes/index");
+app.use("/", indexRouter);
+
+
 const PORT = process.env.PORT || 3000;
 const ENV = process.env.NODE_ENV || null;
 

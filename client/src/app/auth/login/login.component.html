@@ -1,0 +1,31 @@
+<div class="flex justify-content-center align-items-center h-screen ">
+  <form [formGroup]="formGroup" class="flex flex-column w-24rem">
+    <label for="password" class="flex justify-content-center mb-6">Login</label>
+    <p-password formControlName="password" [feedback]="false" class="my-2 "
+                [style]="{'width':'100%'}"
+                [inputStyle]="{'width':'100%'}"
+                [toggleMask]="true"
+                placeholder="Password"
+    ></p-password>
+    <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
+      <small class="text-danger">Password is required and must be at least 6 characters long.</small>
+    </div>
+    <p-password formControlName="email" [feedback]="false" class="my-2"
+                [style]="{'width':'100%'}"
+                [inputStyle]="{'width':'100%'}"
+                [toggleMask]="true"
+                placeholder="Email"></p-password>
+    <div *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched">
+      <small class="text-danger">Please enter a valid email address.</small>
+    </div>
+    <p-button label="Submit"  [disabled]="!formGroup.valid"
+              [ngStyle]="{ 'width': '100%' }" styleClass="p-button-raised surface-900 my-4" (click)="onSubmit()"></p-button>
+
+    <div class="flex justify-content-between sm:mt-4 lg:mt-8">
+      <p-button label="Forget password" styleClass="p-button-secondary p-button-text" (click)="navigateToRegister()"></p-button>
+      <p-button label="Register" styleClass="p-button-secondary p-button-text"></p-button>
+    </div>
+    <p class="text-4xl">{{error}}</p>
+  </form>
+
+</div>
