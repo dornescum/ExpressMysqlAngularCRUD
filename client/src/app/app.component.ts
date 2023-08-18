@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {Component} from '@angular/core';
 
 
 @Component({
@@ -7,14 +6,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  title = 'client';
+export class AppComponent {
+  // title = 'client2 ';
 
-  formGroup!: FormGroup;
 
-  ngOnInit() {
-    this.formGroup = new FormGroup({
-      value: new FormControl()
-    });
-  }
 }
