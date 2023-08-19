@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c97993ee-894e-4252-acfd-a5db13e750ac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/routes/register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/components/models/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/quiz.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db/sqlInitial.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/sqlInitial.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/auth.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/api.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/api.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/auth.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/session-storage.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/session-storage.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/token.service.spec.ts" beforeDir="false" />
-    </list>
+    <list default="true" id="c97993ee-894e-4252-acfd-a5db13e750ac" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +36,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "SQL-Insert-Multirow.sql.groovy",
     "javascript.nodejs.core.library.configured.version": "14.17.4",
     "javascript.nodejs.core.library.typings.version": "14.17.4",
     "last_opened_file_path": "/Users/mihaidornescu/Documents/PERSONAL/ANGULAR/Quiz/quizExpressMysqlAngular",
@@ -85,7 +60,7 @@
       <updated>1692207991562</updated>
       <workItem from="1692207992671" duration="1033000" />
       <workItem from="1692285038170" duration="2065000" />
-      <workItem from="1692428861673" duration="15953000" />
+      <workItem from="1692428861673" duration="16670000" />
     </task>
     <servers />
   </component>
