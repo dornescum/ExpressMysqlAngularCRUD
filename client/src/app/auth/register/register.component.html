@@ -1,5 +1,5 @@
 <div class="flex justify-content-center align-items-center h-screen ">
-  <form [formGroup]="formGroup" class="flex flex-column w-24rem">
+  <form [formGroup]="formGroup" class="flex flex-column w-24rem" (click)="onSubmit()">
     <label class="flex justify-content-center mb-6" for="password">Register</label>
 <!--    TODO add photo and nickname-->
     <p-password [feedback]="false" [inputStyle]="{'width':'100%'}" [style]="{'width':'100%'}"
@@ -31,9 +31,19 @@
       <small class="text-danger">Password is required and must be at least 6 characters long.</small>
     </div>
 
+    <p-inputNumber inputId="integeronly" formControlName="age"
+                   [style]="{'width':'100%'}"
+                   placeholder="Age"></p-inputNumber>
 
-    <p-button (click)="onSubmit()" [disabled]="!formGroup.valid"
-              [ngStyle]="{ 'width': '100%' }" label="Submit" styleClass="p-button-raised surface-900 my-4"></p-button>
+
+    <input type="text" pInputText formControlName="nickname" class="my-2"
+           [style]="{'width':'100%'}" placeholder="Nickname"/>
+
+
+
+    <p-button [disabled]="!formGroup.valid"
+              [ngStyle]="{ 'width': '100%' }" label="Submit"
+              styleClass="p-button-raised surface-900 my-4" (click)="navigateToLogin()"></p-button>
 
     <div class="flex justify-content-start sm:mt-4 lg:mt-8">
       <p-checkbox class="pr-2" formControlName="agree" inputId="terms" value="New York"></p-checkbox>

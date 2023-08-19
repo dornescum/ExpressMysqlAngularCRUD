@@ -19,7 +19,8 @@
       <small class="text-danger">Please enter a valid email address.</small>
     </div>
     <p-button label="Submit"  [disabled]="!formGroup.valid"
-              [ngStyle]="{ 'width': '100%' }" styleClass="p-button-raised surface-900 my-4" (click)="onSubmit()"></p-button>
+              [ngStyle]="{ 'width': '100%' }" styleClass="p-button-raised surface-900 my-4"
+              (click)="onSubmit()"></p-button>
 
     <div class="flex justify-content-between sm:mt-4 lg:mt-8">
       <p-button label="Forget password" styleClass="p-button-secondary p-button-text" (click)="navigateToRegister()"></p-button>
