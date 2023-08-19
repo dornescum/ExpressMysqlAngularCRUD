@@ -24,7 +24,7 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}${url}`, payload).pipe(
       map((res) => {
         // console.log('response from post register', res);
-        // console.log('response from post register payload', payload);
+        console.log('response from POST service register payload', payload);
         return res;
       })
     );

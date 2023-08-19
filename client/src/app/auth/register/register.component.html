@@ -1,54 +1,52 @@
+<!--suppress ALL-->
 <div class="flex justify-content-center align-items-center h-screen ">
-  <form [formGroup]="formGroup" class="flex flex-column w-24rem" (click)="onSubmit()">
-    <label class="flex justify-content-center mb-6" for="password">Register</label>
-<!--    TODO add photo and nickname-->
-    <p-password [feedback]="false" [inputStyle]="{'width':'100%'}" [style]="{'width':'100%'}"
+  <form [formGroup]="formGroup" class="flex flex-column w-24rem">
+    <label for="password" class="flex justify-content-center mb-6">Register</label>
+    <p-password formControlName="password" [feedback]="false" class="my-2 "
+                [style]="{'width':'100%'}"
+                [inputStyle]="{'width':'100%'}"
                 [toggleMask]="true"
-                class="my-2"
-                formControlName="email"
-                placeholder="Email"></p-password>
+                placeholder="Password"
+    ></p-password>
+    <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
+      <small class="text-danger">Password is required and must be at least 6 characters long.</small>
+    </div>
+
+    <p-password formControlName="confirmPassword" [feedback]="false" class="my-2 "
+                [style]="{'width':'100%'}"
+                [inputStyle]="{'width':'100%'}"
+                [toggleMask]="true"
+                placeholder="Confirm Password"
+    ></p-password>
+    <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
+      <small class="text-danger">Password is required and must be at least 6 characters long.</small>
+    </div>
+
+    <p-password formControlName="email" [feedback]="false" class="my-2"
+                [style]="{'width':'100%'}"
+                [inputStyle]="{'width':'100%'}"
+                [toggleMask]="true"
+                placeholder="Email">
+    </p-password>
     <div *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched">
       <small class="text-danger">Please enter a valid email address.</small>
     </div>
 
-    <p-password [feedback]="false" [inputStyle]="{'width':'100%'}" [style]="{'width':'100%'}"
-                [toggleMask]="true"
-                class="my-2 "
-                formControlName="password"
-                placeholder="Password"
-    ></p-password>
-    <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
-      <small class="text-danger">Password is required and must be at least 6 characters long.</small>
-    </div>
+    <p-inputNumber inputId="integeronly" formControlName="age"  [style]="{'width':'100%'}"  placeholder="Age"></p-inputNumber>
 
-    <p-password [feedback]="false" [inputStyle]="{'width':'100%'}" [style]="{'width':'100%'}"
-                [toggleMask]="true"
-                class="my-2 "
-                formControlName="confirmPassword"
-                placeholder="Password"
-    ></p-password>
-    <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
-      <small class="text-danger">Password is required and must be at least 6 characters long.</small>
-    </div>
+    <input type="text" pInputText formControlName="nickname"/>
 
-    <p-inputNumber inputId="integeronly" formControlName="age"
-                   [style]="{'width':'100%'}"
-                   placeholder="Age"></p-inputNumber>
-
-
-    <input type="text" pInputText formControlName="nickname" class="my-2"
-           [style]="{'width':'100%'}" placeholder="Nickname"/>
-
-
-
-    <p-button [disabled]="!formGroup.valid"
-              [ngStyle]="{ 'width': '100%' }" label="Submit"
-              styleClass="p-button-raised surface-900 my-4" (click)="navigateToLogin()"></p-button>
 
     <div class="flex justify-content-start sm:mt-4 lg:mt-8">
-      <p-checkbox class="pr-2" formControlName="agree" inputId="terms" value="New York"></p-checkbox>
-      <label for="terms">Agree with terms </label>
+      <p-checkbox formControlName="terms" value="New York" inputId="ny" class="pr-2"></p-checkbox>
+      <label for="ny">New York</label>
     </div>
+
+    <p-button label="Submit"  [disabled]="!formGroup.valid"
+              [ngStyle]="{ 'width': '100%' }" styleClass="p-button-raised surface-900 my-4"
+              (click)="onSubmit()"></p-button>
+
+
     <p class="text-4xl">{{error}}</p>
   </form>
 

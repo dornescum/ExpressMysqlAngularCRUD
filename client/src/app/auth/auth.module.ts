@@ -11,6 +11,7 @@ import {InputNumberModule} from "primeng/inputnumber";
 import {InputTextModule} from "primeng/inputtext";
 
 
+
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
   imports: [CommonModule, AuthRoutingModule, ReactiveFormsModule, PasswordModule, ButtonModule, CheckboxModule, InputNumberModule, InputTextModule]

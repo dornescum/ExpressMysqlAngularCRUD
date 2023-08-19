@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { ApiService } from './api.service';
 import { TokenService } from './token.service';
 import {Router} from '@angular/router';
+import {User} from "../components/models/user";
 @Injectable({
   providedIn: 'root'
 })
@@ -45,18 +46,14 @@ export class AuthService {
       );
   }
 
-  register(user: any): Observable<any> {
-    console.log('user from register auth service', user);
-    // console.log('user role', user);
-    return this.api.postTypeRequest('auth/register', {
-      fullName: user.fullName,
+  register(user: User): Observable<any> {
+    // console.log('user from register auth service', user);
+    console.log('user role', user);
+    return this.api.postTypeRequest('register', {
       email: user.email,
       password: user.password,
-      card_number: user.card_number,
-      card_name: user.card_name,
-      card_expire: user.card_expire,
-      csv: user.csv,
-      role: user.role
+      age: user.age,
+      nickname: user.nickname
     });
   }
 

@@ -1,3 +1,4 @@
+<!--suppress ALL-->
 <div class="flex justify-content-center align-items-center h-screen ">
   <form [formGroup]="formGroup" class="flex flex-column w-24rem">
     <label for="password" class="flex justify-content-center mb-6">Login</label>
@@ -14,7 +15,8 @@
                 [style]="{'width':'100%'}"
                 [inputStyle]="{'width':'100%'}"
                 [toggleMask]="true"
-                placeholder="Email"></p-password>
+                placeholder="Email">
+    </p-password>
     <div *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched">
       <small class="text-danger">Please enter a valid email address.</small>
     </div>

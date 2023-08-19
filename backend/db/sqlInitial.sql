@@ -58,8 +58,8 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 INSERT INTO `users` (username, password, email, role) VALUES
-                                                          ('test', 'test12', 'test@example.com', 2), -- Assuming role 2 is for regular users
-                                                          ('admin', 'admin12', 'admin@example.com', 1); -- Assuming role 1 is for administrators
+                                                          ('admin', 'admin12', 'admin@example.com', 1), -- Assuming role 1 is for administrators
+                                                          ('test', 'test12', 'test@example.com', 2); -- Assuming role 2 is for regular users
 
 
 CREATE TABLE `role` (
