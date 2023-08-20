@@ -5,6 +5,7 @@ import {RegisterComponent} from './auth/register/register.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)

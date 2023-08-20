@@ -13,11 +13,13 @@ import { CheckboxModule } from 'primeng/checkbox';
 
 import {ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './components/UI/header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
 
   ],
   imports: [

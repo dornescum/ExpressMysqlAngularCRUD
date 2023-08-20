@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { QuizTypeComponent } from './quiz-type/quiz-type.component';
+import {AuthGuardService} from "../services/auth-guard.service";
 
 const routes: Routes = [
   {
@@ -9,7 +10,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', redirectTo: 'quiz-type', pathMatch: 'full' },
-      { path: 'quiz-type', component: QuizTypeComponent }
+      { path: 'quiz-type', component: QuizTypeComponent,  canActivate: [AuthGuardService], }
     ]
   }
 ];
