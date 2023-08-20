@@ -23,12 +23,13 @@ router.post("/", [
     const nickname = req.body.nickname;
     const age = req.body.age;
     const hashedPassword = md5(password.toString());
-    console.log(nickname)
-    console.log(req.body)
+    // console.log(nickname)
+    // console.log(req.body)
     db.query(
         `SELECT email FROM users WHERE email = ?`,
         [email],
         (err, result) => {
+            // console.log('querry', result)
             if (err) {
                 return res.status(500).json({ error: 'Server error' });
             }
@@ -43,6 +44,7 @@ router.post("/", [
                     `INSERT INTO users (email, password, nickname, age) VALUES (?, ?, ?, ?)`,
                     [email, hashedPassword, nickname, age],
                     (err, result) => {
+                        console.log('result register', result)
                         if (err) {
                             return res.status(400).json({
                                 message: "Something went wrong, please try again",
@@ -50,7 +52,13 @@ router.post("/", [
                                 data: err,
                             });
                         } else {
-                            const token = jwt.sign({ data: result }, "secret");
+                            const newUser = {
+                                email, nickname, age,
+                                password: hashedPassword
+                            }
+                            // TODO check token validity
+                            const token = jwt.sign( newUser, "secret");
+                            console.log('token : ', token)
                             return res.status(200).json({
                                 data: result,
                                 message: "You have successfully registered.",
