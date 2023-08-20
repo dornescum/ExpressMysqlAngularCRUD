@@ -14,6 +14,9 @@ import { CheckboxModule } from 'primeng/checkbox';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/UI/header/header.component';
+import {PanelModule} from "primeng/panel";
+import {MenuModule} from "primeng/menu";
+import {MenubarModule} from "primeng/menubar";
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import { HeaderComponent } from './components/UI/header/header.component';
     PasswordModule,
     ReactiveFormsModule,
     CheckboxModule,
-    HttpClientModule
+    HttpClientModule,
+    PanelModule,
+    MenuModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

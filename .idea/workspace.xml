@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97993ee-894e-4252-acfd-a5db13e750ac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/app/services/auth-guard.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a036f93f-95eb-4a08-befa-7eeca969af90.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/home/home-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/home-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/home/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +77,7 @@
       <workItem from="1692207992671" duration="1033000" />
       <workItem from="1692285038170" duration="2065000" />
       <workItem from="1692428861673" duration="16910000" />
-      <workItem from="1692540239139" duration="1988000" />
+      <workItem from="1692540239139" duration="3111000" />
     </task>
     <servers />
   </component>
