@@ -36,6 +36,8 @@ export class LoginComponent implements OnInit{
     this.error = '';
     this.email = this.formGroup.get('email')?.value.toLowerCase();
     this.password = this.formGroup.get('password')?.value.toLowerCase();
+    console.log('email : ', this.email)
+    console.log('password : ', this.password)
     if (!this.email || !this.password) {
       this.error = 'Make sure to fill everything ;)';
     } else {
@@ -45,7 +47,7 @@ export class LoginComponent implements OnInit{
           (res) => {
             console.log('response login', res)
             this.loading = false;
-            this.router.navigate(['/home/quiz-type']);
+            this.router.navigate(['/quiz']);
           },
           (err) => {
             console.log(err);

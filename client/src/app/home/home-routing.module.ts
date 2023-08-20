@@ -10,7 +10,6 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'quiz-type', pathMatch: 'full' },
       { path: 'quiz-type', component: QuizTypeComponent }
-      // Add more routes for different quiz types if needed
     ]
   }
 ];

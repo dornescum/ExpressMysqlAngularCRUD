@@ -57,8 +57,8 @@ loginUser = async (params) => {
     // if (error) throw { message: error.details[0].message, statusCode: 400 };
 
     const {email, password} = params;
-    console.log('loginUser', email);
-    console.log('loginUser', password);
+    console.log('loginUser params', email);
+    console.log('loginUser params', password);
     const hashedPassword = md5(password.toString());
 
     return new Promise((resolve, reject) => {
