@@ -17,12 +17,14 @@ import { HeaderComponent } from './components/UI/header/header.component';
 import {PanelModule} from "primeng/panel";
 import {MenuModule} from "primeng/menu";
 import {MenubarModule} from "primeng/menubar";
+// import { ProfileComponent } from './auth/profile/profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    // ProfileComponent,
 
   ],
   imports: [

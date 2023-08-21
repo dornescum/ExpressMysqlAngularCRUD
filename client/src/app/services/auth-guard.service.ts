@@ -18,14 +18,14 @@ import { TokenService} from './token.service';
   providedIn: 'root',
 })
 export class AuthGuardService implements CanActivate {
-  constructor(private _route: Router, private _token: TokenService) {}
+  constructor(private _route: Router, private token: TokenService) {}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
-    const currentUser = this._token.getUser();
+    const currentUser = this.token.getUser();
     console.log('currentUser authGuard', currentUser);
     if (currentUser) {
       return true;
     }
-    this._route.navigate(['/login']);
+    this._route.navigate(['/auth/login']);
     return false;
   }
 }

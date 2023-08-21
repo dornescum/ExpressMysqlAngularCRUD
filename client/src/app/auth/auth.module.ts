@@ -9,11 +9,12 @@ import {ButtonModule} from 'primeng/button';
 import {CheckboxModule} from 'primeng/checkbox';
 import {InputNumberModule} from "primeng/inputnumber";
 import {InputTextModule} from "primeng/inputtext";
+import {ProfileComponent} from './profile/profile.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, ProfileComponent],
   imports: [CommonModule, AuthRoutingModule, ReactiveFormsModule, PasswordModule, ButtonModule, CheckboxModule, InputNumberModule, InputTextModule]
 })
 export class AuthModule {

@@ -10,14 +10,14 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit{
   user!: {};
-  userSessionStorage!:{}
+  userSessionStorage: any;
   constructor(private authService: AuthService, private token: TokenService, private router: Router) {
   }
   ngOnInit(){
     this.user = this.authService.getUser();
-    console.log('1',this.user)
-    this.userSessionStorage = this.token.getUser();
-    console.log('w token ', this.user)
+    // console.log('1',this.user)
+    this.userSessionStorage = this.token.getToken(); //Fixme
+    console.log('w token ', this.userSessionStorage)
 
     if(!this.userSessionStorage){
       this.router.navigate(['auth/login']);

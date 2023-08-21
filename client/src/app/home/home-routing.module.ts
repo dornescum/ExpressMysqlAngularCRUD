@@ -9,8 +9,8 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     children: [
-      { path: '', redirectTo: 'quiz-type', pathMatch: 'full' },
-      { path: 'quiz-type', component: QuizTypeComponent,  canActivate: [AuthGuardService], }
+      { path: 'quiz-type', redirectTo: 'quiz-type', pathMatch: 'full' },
+      { path: 'quiz-type', component: QuizTypeComponent,  canActivate: [AuthGuardService] }
     ]
   }
 ];

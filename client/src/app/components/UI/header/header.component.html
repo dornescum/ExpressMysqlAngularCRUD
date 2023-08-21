@@ -13,12 +13,13 @@
 <!--    <p-menu #menu id="config_menu" [model]="items" [popup]="true"></p-menu>-->
 <!--  </ng-template>-->
 <!--</p-panel>-->
-<!--<p-menubar [model]="items"></p-menubar>-->
+<!--FIXME trebuie dat relaod sa incarce css-->
+<p-menubar [model]="items" [ngClass]="userSessionStorage ? 'show': 'p-hidden' "></p-menubar>
 <!--<p-menubar [model]="items" [styleClass]="{'p-menubar-mobile': true}"></p-menubar>-->
 
-<div class="app-header">
-  <button class="profile-button p-button p-button-rounded p-button-success">Profile</button>
-  <button class="logout-button p-button p-button-rounded p-button-danger">Logout</button>
-</div>
+<!--<div class="app-header">-->
+<!--  <button class="profile-button p-button p-button-rounded p-button-success">Profile</button>-->
+<!--  <button class="logout-button p-button p-button-rounded p-button-danger">Logout</button>-->
+<!--</div>-->
 
 
