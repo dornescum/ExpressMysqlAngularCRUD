@@ -46,6 +46,8 @@ export class ApiService {
       })
     );
   }
-
+  getModuleById(url: string, moduleId: number) {
+    return this.http.get(`${this.baseUrl}${url}/${moduleId}`); // Replace 'url' with the appropriate API endpoint
+  }
 
 }

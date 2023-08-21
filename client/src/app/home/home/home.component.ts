@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit{
     // this.apiService
     console.log(filterId)
     const id = filterId?.module_id;
+    console.log('id : ', id)
     this.router.navigate(['/quiz-type', id]);
   }
 
