@@ -13,7 +13,7 @@ create table Answers
     AnswerText text       not null,
     IsCorrect  tinyint(1) null,
     constraint Answers_ibfk_1
-        foreign key (QuestionID) references Questions (QuestionID)
+        foreign key (QuestionID) references Questions (question_id)
 );
 
 create index QuestionID
@@ -29,7 +29,7 @@ create table Users
 
 INSERT INTO usersScore (UserID, Username, Score)
 VALUES (1, 'User1', 0);
-INSERT INTO Questions (QuestionID, QuestionText)
+INSERT INTO Questions (question_id, QuestionText)
 VALUES (1, 'What is the capital of France?');
 INSERT INTO Answers (AnswerID, QuestionID, AnswerText, IsCorrect)
 VALUES (1, 1, 'Paris', TRUE),
@@ -66,3 +66,42 @@ CREATE TABLE `role` (
                         `id_role` int(11) NOT NULL,
                         `role_type` enum('admin','user') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+# 21/08
+# drop table answers;
+# drop table questions;
+# drop table usersscore;
+
+CREATE TABLE Questions (
+                           question_id INT PRIMARY KEY,
+                           module_id INT,
+                           question TEXT,
+                           FOREIGN KEY (module_id) REFERENCES Module(module_id)
+);
+
+CREATE TABLE Choices (
+                         choice_id INT PRIMARY KEY,
+                         question_id INT,
+                         choices VARCHAR(255),
+                         is_correct TINYINT(1),
+                         FOREIGN KEY (question_id) REFERENCES Questions(question_id)
+);
+
+CREATE TABLE user_quiz (
+                           userid INT PRIMARY KEY,
+                           score INT
+);
+
+create table quiz_taken
+(
+    userid int not null
+        primary key,
+    quiz_taken  int not null default 0
+);
+
+create table user_quiz
+(
+    userid int not null
+        primary key,
+    score  int null
+);
