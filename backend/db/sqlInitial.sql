@@ -104,4 +104,7 @@ create table user_quiz
     userid int not null
         primary key,
     score  int null
+
 );
+ALTER TABLE user_quiz
+ADD FOREIGN KEY (userid) REFERENCES users(id)
