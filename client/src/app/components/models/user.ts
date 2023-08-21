@@ -6,3 +6,9 @@ export interface User {
   terms?: boolean,
   nickname: string
 }
+
+export interface Modules {
+  module_id: number,
+  module_name: string,
+  module_img: string
+}

@@ -107,4 +107,10 @@ create table user_quiz
 
 );
 ALTER TABLE user_quiz
-ADD FOREIGN KEY (userid) REFERENCES users(id)
+ADD FOREIGN KEY (userid) REFERENCES users(id);
+
+ALTER TABLE module
+ADD COLUMN module_img VARCHAR(255);
+
+insert into module (module_name, module_img) VALUES ('test','https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png'),
+                                                    ('geometry', 'https://logos-world.net/wp-content/uploads/2023/02/JavaScript-Logo.png')

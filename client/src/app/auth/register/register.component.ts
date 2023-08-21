@@ -33,14 +33,14 @@ export class RegisterComponent implements OnInit{
       nickname: new FormControl('', [Validators.required, Validators.minLength(3)]),
 
     });
-    console.log('ng', this.formGroup.value )
+    // console.log('ng', this.formGroup.value )
   }
 
 
 
   onSubmit(): void {
     // console.log('on submit')
-    console.log('form ', this.formGroup.value )
+    // console.log('form ', this.formGroup.value )
 
     this.loading = true;
     this.error = '';
@@ -51,12 +51,12 @@ export class RegisterComponent implements OnInit{
     this.terms = this.formGroup.get('terms')?.value;
     this.nickname = this.formGroup.get('nickname')?.value;
 
-    console.log('email', this.email)
-    console.log('password', this.password)
-    console.log('confirm', this.confirmPassword)
-    console.log('age', this.age)
-    console.log('terms', this.terms)
-    console.log('nickname', this.nickname)
+    // console.log('email', this.email)
+    // console.log('password', this.password)
+    // console.log('confirm', this.confirmPassword)
+    // console.log('age', this.age)
+    // console.log('terms', this.terms)
+    // console.log('nickname', this.nickname)
     if (!this.email || !this.password) {
       this.error = 'Make sure to fill everything ;)';
     }

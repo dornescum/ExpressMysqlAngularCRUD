@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../enviroments/enviroment';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import {Modules} from '../components/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +37,15 @@ export class ApiService {
       })
     );
   }
+
+  getModules(url: string) {
+    return this.http.get(`${this.baseUrl}${url}`).pipe(
+      map((res) => {
+        // console.log('module req', res);
+        return res as Modules[];
+      })
+    );
+  }
+
+
 }

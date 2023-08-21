@@ -3,14 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { QuizTypeComponent } from './quiz-type/quiz-type.component';
 import {AuthGuardService} from "../services/auth-guard.service";
-
+// FIXME routes for id
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     children: [
-      { path: 'quiz-type', redirectTo: 'quiz-type', pathMatch: 'full' },
-      { path: 'quiz-type', component: QuizTypeComponent,  canActivate: [AuthGuardService] }
+      { path: 'quiz-type/:id', redirectTo: 'quiz-type', pathMatch: 'full' },
+      { path: 'quiz-type/:id', component: QuizTypeComponent,  canActivate: [AuthGuardService] }
     ]
   }
 ];
