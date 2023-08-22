@@ -49,13 +49,17 @@ export class HomeComponent implements OnInit{
   }
 
   goToModule(e: number){
+    console.log('e : ', e)
     console.log('modules', this.modules)
     const  filterId = this.modules.find((el: any) => el.module_id === e)
     // this.apiService
     console.log(filterId)
     const id = filterId?.module_id;
-    console.log('id : ', id)
-    this.router.navigate(['/quiz-type', id]);
+    // console.log('id : ', id)
+    this.router.navigate(['/quiz/quiz-type', id]);
+    // this.router.navigate(['/quiz/quiz-type', id], {state: {filterId}});
+    // this.router.navigate(['/quiz/quiz-type', id], { queryParams: { filterId: JSON.stringify(filterId) } });
+    // this.router.navigate(['/quiz/quiz-type', id], { queryParams: { filterId: filterId } });
   }
 
   // protected readonly style = style;

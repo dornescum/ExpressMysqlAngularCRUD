@@ -5,19 +5,29 @@ import { HomeComponent } from './home/home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import {CardModule} from 'primeng/card';
 import {ButtonModule} from 'primeng/button';
+import { QuestionComponent } from './question/question.component';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {OrderListModule} from 'primeng/orderlist';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {DialogModule} from 'primeng/dialog';
 
 
 
 @NgModule({
   declarations: [
     QuizTypeComponent,
-    HomeComponent
+    HomeComponent,
+    QuestionComponent
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    CardModule,
-    ButtonModule
-  ]
+	imports: [
+		CommonModule,
+		HomeRoutingModule,
+		CardModule,
+		ButtonModule,
+		RadioButtonModule,
+		OrderListModule,
+		ConfirmDialogModule,
+		DialogModule
+	]
 })
 export class HomeModule { }

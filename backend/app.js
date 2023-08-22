@@ -20,21 +20,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Health check
-app.get("/", (req, res) => {
-    // console.log(db)
-    db.query(
-        `SELECT AnswerText
-         FROM Answers
-         WHERE QuestionID = 1 AND IsCorrect = TRUE;
-        `,
-        (err, results) => {
-            if (err) console.log(err);
-            else res.json(results);
-        }
-    );
-    // res.status(200).send("Health Check");
-    // res.status(200).json({message: result});
-});
+// app.get("/", (req, res) => {
+//     // console.log(db)
+//     db.query(
+//         `SELECT AnswerText
+//          FROM Answers
+//          WHERE QuestionID = 1 AND IsCorrect = TRUE;
+//         `,
+//         (err, results) => {
+//             if (err) console.log(err);
+//             else res.json(results);
+//         }
+//     );
+//     // res.status(200).send("Health Check");
+//     // res.status(200).json({message: result});
+// });
 
 // Router index
 const indexRouter = require("./routes/index");

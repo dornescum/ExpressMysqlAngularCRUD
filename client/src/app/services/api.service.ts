@@ -21,6 +21,7 @@ export class ApiService {
       })
     );
   }
+
   postTypeRequest(url: string, payload: any) {
     return this.http.post(`${this.baseUrl}${url}`, payload).pipe(
       map((res) => {
@@ -30,6 +31,7 @@ export class ApiService {
       })
     );
   }
+
   putTypeRequest(url: string, payload: any) {
     return this.http.put(`${this.baseUrl}${url}`, payload).pipe(
       map((res) => {
@@ -47,7 +49,32 @@ export class ApiService {
     );
   }
   getModuleById(url: string, moduleId: number) {
-    return this.http.get(`${this.baseUrl}${url}/${moduleId}`); // Replace 'url' with the appropriate API endpoint
+    return this.http.get(`${this.baseUrl}${url}/${moduleId}`);
   }
+
+    // nu este folosit pt a stoca id intrebarilor
+  postQuestionsId(url: string, id: any, payload: any) {
+    return this.http.post(`${this.baseUrl}${url}/${id}`, payload).pipe(
+        map((res) => {
+          // console.log('response from post register', res);
+          console.log('response from POST service register payload', payload);
+          return res;
+        })
+    );
+  }
+
+    postQuestionsIdResponse(url: string, id: any, payload: any) {
+        return this.http.post(`${this.baseUrl}${url}/${id}`, payload).pipe(
+            map((res) => {
+                // console.log('response from post register', res);
+                console.log('response from POST service register payload', payload);
+                return res;
+            })
+        );
+    }
+
+    getQuestionById(url: string, moduleId: string, questionId: string) {
+        return this.http.get(`${this.baseUrl}${url}/${moduleId}/${questionId}`);
+    }
 
 }
