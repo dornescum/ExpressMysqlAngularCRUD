@@ -1,0 +1,14 @@
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (1, 1, 'testing question 1');
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (2, 1, 'testing question 2');
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (3, 1, 'testing question 2');
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (4, 2, 'Primele cifre din PI');
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (5, 4, 'What is TypeScript');
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (6, 4, 'Which keyword is used to declare a variable in TypeScript');
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (7, 4, 'TypeScript is a superset of which programming language');
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (8, 4, 'Which data type is used to represent a boolean value in TypeScript');
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (9, 4, 'What is the purpose of the "interface" keyword in TypeScript');
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (10, 4, 'How can you explicitly specify the data type of a variable in TypeScript');
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (11, 4, 'Which TypeScript feature allows you to define a new type by extending an existing type');
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (12, 4, 'What is the purpose of the "class" keyword in TypeScript');
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (13, 4, 'Which TypeScript feature allows you to enforce that a class must implement specific ');
+INSERT INTO quiz.questions (question_id, module_id, question) VALUES (14, 4, 'How can you prevent a variable from being assigned the value "null" or "undefined" in TypeScript');

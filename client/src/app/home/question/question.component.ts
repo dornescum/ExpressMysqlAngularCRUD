@@ -18,10 +18,12 @@ export class QuestionComponent implements OnInit {
 	message = '';
     userResponse!: boolean;
 	user!: User;
+  questionsNumber!: any;
 
 	constructor(private route: ActivatedRoute,
 				private apiService: ApiService,
-				private router: Router, private storage: StorageService,
+				private router: Router,
+              private storage: StorageService,
 				private authService: AuthService
 	) {
 	}
@@ -47,6 +49,7 @@ export class QuestionComponent implements OnInit {
 			console.log('State Data:', stateData);
 		});
 		this.getQuestion();
+    this.getNumbersOfQuestions();
 	}
 
 	getQuestion() {
@@ -60,18 +63,12 @@ export class QuestionComponent implements OnInit {
 			//   console.log('item ', item)
 			//   this.question.push(item);
 			// }
-			console.log('', this.questionResponses)
+			// console.log('', this.questionResponses)
 			this.question = this.questionResponses[0].question;
-			console.log('q ', this.question)
+			// console.log('q ', this.question)
 		})
-
 	}
 
-// result(e: any){
-//   console.log('e question: ', e)
-//   const correct= this.questionResponses.find(item => item.is_correct ? item.is_correct === 1 :  '')
-//   console.log('c : ', correct)
-// }
 
 	result(index: number) {
 		const selectedChoice = this.questionResponses[index];
@@ -80,8 +77,6 @@ export class QuestionComponent implements OnInit {
 			this.message = 'Correct answer selected!';
 			// Do something to indicate the correct answer (e.g., change styling)
             this.userResponse = true;
-
-
 		} else {
           this.userResponse = false;
 			console.log('Incorrect answer selected.');
@@ -94,5 +89,10 @@ export class QuestionComponent implements OnInit {
         console.log('Response from POST:', response);
       });
 	}
+
+  getNumbersOfQuestions(){
+    this.questionsNumber = this.storage.getItem('nid');
+    console.log(this.questionsNumber)
+  }
 
 }

@@ -7,7 +7,6 @@ import {CardModule} from 'primeng/card';
 import {ButtonModule} from 'primeng/button';
 import { QuestionComponent } from './question/question.component';
 import {RadioButtonModule} from 'primeng/radiobutton';
-import {OrderListModule} from 'primeng/orderlist';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {DialogModule} from 'primeng/dialog';
 
@@ -25,7 +24,6 @@ import {DialogModule} from 'primeng/dialog';
 		CardModule,
 		ButtonModule,
 		RadioButtonModule,
-		OrderListModule,
 		ConfirmDialogModule,
 		DialogModule
 	]

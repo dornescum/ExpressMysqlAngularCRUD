@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
 // ruta individuala pt modul
 router.get("/:id", (req, res) => {
     const id = req.params.id;
-    console.log('id : ', id);
+    // console.log('id : ', id);
     const numberOfQuestions = 2;
     // const sql = `SELECT * FROM module WHERE module_id = ${id}`;
     const sql = `SELECT * FROM module as m
@@ -49,9 +49,9 @@ router.get("/:id", (req, res) => {
 router.get("/:id/:qid", (req, res) => {
     const id = req.params.id;
     const qid = req.params.qid;
-    console.log('id : ', id);
-    console.log('qid : ', qid);
-    console.log('req body : ', req);
+    // console.log('id : ', id);
+    // console.log('qid : ', qid);
+    // console.log('req body : ', req);
 
     const sql = `SELECT * FROM module as m
                                    JOIN questions as q on m.module_id = q.module_id
@@ -97,8 +97,10 @@ router.post("/:id", (req, res) => {
         }
 
         if (checkResult.length > 0) {
+            // FIXME
             // If the user's quiz response exists, update the existing record
-            const updateSql = "UPDATE user_quiz SET score = ? WHERE userid = ? AND question_id = ?";
+            // const updateSql = "UPDATE user_quiz SET score = ? WHERE userid = ? AND question_id = ?";
+            const updateSql = "UPDATE user_quiz SET score = score +1 WHERE userid = ? AND question_id = ?";
             db.query(updateSql, [response, userId, questionId], (updateErr, updateResult) => {
                 if (updateErr) {
                     console.error(updateErr.message);
