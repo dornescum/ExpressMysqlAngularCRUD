@@ -9,6 +9,7 @@ import { QuestionComponent } from './question/question.component';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {DialogModule} from 'primeng/dialog';
+import { ResultComponent } from './result/result.component';
 
 
 
@@ -16,7 +17,8 @@ import {DialogModule} from 'primeng/dialog';
   declarations: [
     QuizTypeComponent,
     HomeComponent,
-    QuestionComponent
+    QuestionComponent,
+    ResultComponent
   ],
 	imports: [
 		CommonModule,

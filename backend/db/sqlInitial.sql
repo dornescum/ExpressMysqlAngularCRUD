@@ -234,3 +234,17 @@ INSERT INTO quiz.choices (choice_id, question_id, choices, is_correct) VALUES (3
 INSERT INTO quiz.choices (choice_id, question_id, choices, is_correct) VALUES (36, 14, 'By using the "non-nullable" type', 0);
 INSERT INTO quiz.choices (choice_id, question_id, choices, is_correct) VALUES (37, 14, 'By using the "strict" mode', 0);
 INSERT INTO quiz.choices (choice_id, question_id, choices, is_correct) VALUES (38, 14, 'By using the "!" symbol after the data type', 1);
+
+
+# 23/08
+drop table user_quiz;
+
+CREATE TABLE user_quiz
+(
+    userid      int not null,
+    score       int null,
+    question_id int null,
+    primary key (userid, question_id),
+    constraint user_quiz_ibfk_1
+        foreign key (userid) references users (id)
+);

@@ -5,94 +5,125 @@ import {StorageService} from '../../services/storage.service';
 import {Questions, User} from '../../components/models/user';
 import {AuthService} from '../../services/auth.service';
 
-// import {ConfirmationService} from 'primeng/api';
 
 @Component({
-	selector: 'app-question', templateUrl: './question.component.html', styleUrls: ['./question.component.scss']
+  selector: 'app-question', templateUrl: './question.component.html', styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
-	questionId!: string;
-	moduleId = '';
-	questionResponses: Questions[] = [];
-	question!: any;
-	message = '';
-    userResponse!: boolean;
-	user!: User;
+  questionId!: string;
+  moduleId = '';
+  questionResponses: Questions[] = [];
+  question!: any;
+  message = '';
+  userResponse!: boolean;
+  user!: User;
   questionsNumber!: any;
+  currentQuestionIndex: number = -1; // altfel sare peste primul element
+  questionsNumberLastElement!: number;
+  quizCompleted!: boolean;
 
-	constructor(private route: ActivatedRoute,
-				private apiService: ApiService,
-				private router: Router,
+
+  constructor(private route: ActivatedRoute,
+              private apiService: ApiService,
+              private router: Router,
               private storage: StorageService,
-				private authService: AuthService
-	) {
-	}
+              private authService: AuthService) {
+  }
 
-	ngOnInit() {
-		this.user = this.authService.getUser();
-		console.log('user ', this.user)
-		// this.route.params.subscribe(params => {
-		//   console.log('params ', params)
-		// })
+  ngOnInit() {
+    this.user = this.authService.getUser();
+    // console.log('user ', this.user)
+    this.route.paramMap.subscribe(params => {
+      // console.log('params ', params)
+      const moduleId = params?.get('id') as string;
+      this.moduleId = moduleId;
+      this.questionId = params.get('qid') as string;
+      // Retrieve state data
+      const stateData = history.state;
 
-		this.route.paramMap.subscribe(params => {
-			console.log('params ', params)
-			const moduleId = params?.get('id') as string; // Retrieve the module ID from route parameter
-			this.moduleId = moduleId;
-			this.questionId = params.get('qid') as string; // Retrieve the question ID from route parameter
-
-			// Retrieve state data
-			const stateData = history.state;
-
-			console.log('Module ID:', typeof moduleId);
-			console.log('Question ID:', this.questionId);
-			console.log('State Data:', stateData);
-		});
-		this.getQuestion();
+      // console.log('Module ID:', typeof moduleId);
+      // console.log('Question ID:', this.questionId);
+      // console.log('State Data:', stateData);
+    });
+    // this.getQuestion(this.moduleId, this.questionId);
     this.getNumbersOfQuestions();
-	}
+    for(const q of this.questionsNumber){
+      // this.qetQuestion()
+      // console.log('q', q)
 
-	getQuestion() {
-		this.apiService.getQuestionById('modules', this.moduleId, this.questionId).subscribe((data: any) => {
-			console.log('data', data)
-			this.questionResponses = data;
+      this.getQuestion(this.moduleId, q);
+    }
 
-			// this.question = [];
-			// // this.question = data
-			// for (const item of data) {
-			//   console.log('item ', item)
-			//   this.question.push(item);
-			// }
-			// console.log('', this.questionResponses)
-			this.question = this.questionResponses[0].question;
-			// console.log('q ', this.question)
-		})
-	}
+  }
+
+  getQuestion(moduleId: any, questionId: any) {
+    this.apiService.getQuestionById('modules', moduleId, questionId).subscribe((data: any) => {
+      console.log('data', data)
+      this.questionResponses = data;
+      // console.log('questions responses', this.questionResponses)
+      this.question = this.questionResponses[0].question;
+      // console.log('q ', this.question)
+    })
+  }
 
 
-	result(index: number) {
-		const selectedChoice = this.questionResponses[index];
-		if (selectedChoice.is_correct === 1) {
-			console.log('Correct answer selected!');
-			this.message = 'Correct answer selected!';
-			// Do something to indicate the correct answer (e.g., change styling)
-            this.userResponse = true;
-		} else {
-          this.userResponse = false;
-			console.log('Incorrect answer selected.');
-			this.message = 'Incorrect answer selected.'
-			// Do something to indicate the incorrect answer (e.g., change styling)
-		}
+  result(index: number) {
+    this.quizCompleted = false;
+    const selectedChoice = this.questionResponses[index];
+    if (selectedChoice.is_correct === 1) {
+      this.message = 'Correct answer selected!';
+      this.userResponse = true;
+    } else {
+      this.userResponse = false;
+      this.message = 'Incorrect answer selected.'
+    }
 
-      const payload = {question_id: this.questionId, response: this.userResponse, userId: this.user.id}; // Create the payload object
+    this.currentQuestionIndex++;
+    // console.log('current index ',this.currentQuestionIndex );
+    if (this.currentQuestionIndex < this.questionsNumber.length) {
+      // this.currentQuestionIndex++;
+      console.log('index q ', this.currentQuestionIndex)
+      const nextQuestionId = this.questionsNumber[this.currentQuestionIndex];
+
+      console.log('next question ', nextQuestionId);
+
+      this.getQuestion(this.moduleId, nextQuestionId);
+      const payload = {question_id: nextQuestionId, response: this.userResponse, userId: this.user.id}; // Create the payload object
       this.apiService.postQuestionsIdResponse('modules', this.moduleId, payload).subscribe((response) => {
         console.log('Response from POST:', response);
       });
-	}
+    } else {
+      console.log('Quiz completed'); // All questions have been answered
+      this.quizCompleted = true;
 
-  getNumbersOfQuestions(){
+      // if (this.questionsNumber.length -1  === this.questionsNumber[this.questionsNumber.length - 1]){
+      //   this.router.navigate(['/quiz/result']);
+      // }
+      // if (this.currentQuestionIndex === this.questionsNumber.length - 1) {
+      //   console.log('index q ', this.currentQuestionIndex)
+      //   this.router.navigate(['/quiz/result']);
+      // }
+
+      this.router.navigate(['/quiz/result']);
+
+    }
+  }
+
+  getNumbersOfQuestions() {
     this.questionsNumber = this.storage.getItem('nid');
-    console.log(this.questionsNumber)
+    console.log('questions numbers : ', this.questionsNumber);
+    this.questionsNumberLastElement =this.questionsNumber[this.questionsNumber.length - 1];
+    // console.log('questions numbers last element : ', this.questionsNumberLastElement);
+
   }
 
 }
+// getQuestion() {
+//   this.apiService.getQuestionById('modules', this.moduleId, this.questionId).subscribe((data: any) => {
+//     console.log('data', data)
+//     this.questionResponses = data;
+//     console.log('questions responses', this.questionResponses)
+//     this.question = this.questionResponses[0].question;
+//     console.log('q ', this.question)
+//   })
+// }

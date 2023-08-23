@@ -49,8 +49,8 @@ export class HomeComponent implements OnInit{
   }
 
   goToModule(e: number){
-    console.log('e : ', e)
-    console.log('modules', this.modules)
+    // console.log('e : ', e)
+    // console.log('modules', this.modules)
     const  filterId = this.modules.find((el: any) => el.module_id === e)
     // this.apiService
     console.log(filterId)

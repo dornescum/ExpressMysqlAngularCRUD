@@ -1072,7 +1072,7 @@ quiz|schema||miki|localhost|UPDATE|G</Grants>
       <CollationName>utf8_general_ci</CollationName>
     </table>
     <column id="335" parent="328" name="choice_id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>39</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1109,7 +1109,7 @@ quiz|schema||miki|localhost|UPDATE|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="343" parent="329" name="module_id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>5</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1133,7 +1133,7 @@ quiz|schema||miki|localhost|UPDATE|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="348" parent="330" name="question_id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>15</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1206,6 +1206,7 @@ quiz|schema||miki|localhost|UPDATE|G</Grants>
     </column>
     <column id="363" parent="333" name="question_id">
       <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
     <foreign-key id="364" parent="333" name="user_quiz_ibfk_1">
@@ -1214,7 +1215,8 @@ quiz|schema||miki|localhost|UPDATE|G</Grants>
       <RefTableName>users</RefTableName>
     </foreign-key>
     <index id="365" parent="333" name="PRIMARY">
-      <ColNames>userid</ColNames>
+      <ColNames>userid
+question_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
