@@ -47,6 +47,11 @@ export class HeaderComponent implements OnInit{
           routerLink: '/quiz'
         },
         {
+          label: 'Api',
+          icon: 'pi pi-user',
+          routerLink: '/api-feature'
+        },
+        {
           label: 'Logout',
           icon: 'pi pi-sign-out',
           routerLink: '/auth/login',
