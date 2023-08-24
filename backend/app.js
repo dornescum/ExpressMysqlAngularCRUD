@@ -36,6 +36,7 @@ app.use(express.urlencoded({ extended: false }));
 //     // res.status(200).json({message: result});
 // });
 
+
 // Router index
 const indexRouter = require("./routes/index");
 app.use("/", indexRouter);
