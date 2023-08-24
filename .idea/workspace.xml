@@ -5,16 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97993ee-894e-4252-acfd-a5db13e750ac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/app/api-feature/api-feature-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/api-feature/api-feature.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/api-feature/home/home.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/api-feature/home/home.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/api-feature/home/home.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/api-feature/home/home.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/ionic-app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/products/product/product.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/products/product/product.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/products/product/product.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/products/product/product.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/products/products-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/products/products.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/products/products.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/products/products.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/products/products.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app/products/products.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a036f93f-95eb-4a08-befa-7eeca969af90.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a036f93f-95eb-4a08-befa-7eeca969af90.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2023__17_04__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2023__17_04__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,16 +59,16 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;database.data.extractors.current.export.id&quot;: &quot;SQL-Insert-Multirow.sql.groovy&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;14.17.4&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;14.17.4&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mihaidornescu/Documents/PERSONAL/ANGULAR/Quiz/quizExpressMysqlAngular&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.17.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.18.41&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mihaid/Documents/PERSONAL/angular/QUIZ/quizExpressMysqlAngular&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/mihaidornescu/Documents/PERSONAL/ANGULAR/Quiz/quizExpressMysqlAngular/client/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\mihaid\\Documents\\PERSONAL\\angular\\QUIZ\\quizExpressMysqlAngular\\client\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -90,6 +97,8 @@
       <workItem from="1692540239139" duration="3461000" />
       <workItem from="1692719353167" duration="3592000" />
       <workItem from="1692778746188" duration="22618000" />
+      <workItem from="1692869512496" duration="107000" />
+      <workItem from="1692869620691" duration="25000" />
     </task>
     <servers />
   </component>

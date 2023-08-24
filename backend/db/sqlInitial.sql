@@ -248,3 +248,21 @@ CREATE TABLE user_quiz
     constraint user_quiz_ibfk_1
         foreign key (userid) references users (id)
 );
+
+
+
+create table `ionic-app`
+(
+    id        int auto_increment
+        primary key,
+    title     varchar(255) charset utf8mb3 not null,
+    tag       varchar(55) charset utf8mb3  null,
+    favorite  tinyint(1)                   not null,
+    price     int                          not null,
+    rating    int                          null,
+    flashSale tinyint(1)                   null,
+    img       varchar(255) charset utf8mb3 null,
+    `desc`    varchar(255) charset utf8mb3 null,
+    constraint `ionic-app_pk2`
+        unique (title)
+);

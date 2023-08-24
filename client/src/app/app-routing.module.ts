@@ -16,7 +16,11 @@ const routes: Routes = [
   {
     path: 'api-feature', // Use the new path here
     loadChildren: () => import('./api-feature/api-feature.module').then(m => m.ApiFeatureModule)
-  }
+  },
+  {
+    path: 'products',
+    loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+  },
 ];
 
 @NgModule({
