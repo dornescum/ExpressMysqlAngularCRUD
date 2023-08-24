@@ -1,0 +1,49 @@
+<!--suppress ALL-->
+<div class="flex justify-content-center  align-items-center mt-8">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form" class="bg-gray-100 border-round-md p-4 md:p-2 lg:p-8">
+    <div class="flex flex-column lg:flex-row">
+      <div class="flex flex-column mx-0 md:mx-4 my-1">
+        <label class="mb-2 text-base font-semibold	text-500" for="name">Name</label>
+        <input formControlName="name" id="name" pInputText type="text"/>
+      </div>
+      <div class="flex flex-column  mx-0 md:mx-4 my-1">
+        <label class="mb-2 text-base font-semibold	text-500" for="price">Price</label>
+        <input formControlName="price" id="price" pInputText type="number"/>
+      </div>
+
+      <div class="flex flex-column  mx-0 md:mx-4 my-1 w-17rem md:w-13rem ">
+        <label class="mb-2 text-base font-semibold	text-500" for="favorite">Favorite</label>
+        <p-dropdown [options]="favorite" class="p-fluid" formControlName="favorite" optionLabel="favorite"></p-dropdown>
+      </div>
+    </div>
+
+    <div class="flex flex-column lg:flex-row">
+      <div class="flex flex-column  mx-0 md:mx-4 my-1">
+        <label class="mb-2 text-base font-semibold	text-500" for="quantity">Quantity</label>
+        <input formControlName="quantity" id="quantity" pInputText type="number"/>
+      </div>
+      <div class="flex flex-column mx-0 md:mx-4 my-1 w-17rem md:w-13rem full-width-dropdown">
+        <label class="mb-2 text-base font-semibold	text-500" for="name">Brand</label>
+        <!--        [style]="{'minWidth':'19%'}"-->
+        <p-dropdown [options]="brands" class="p-fluid" formControlName="brand" optionLabel="name"></p-dropdown>
+      </div>
+      <div class="flex flex-column  mx-0 md:mx-4 my-1 w-17rem md:w-13rem ">
+        <label class="mb-2 text-base font-semibold	text-500" for="category">Category</label>
+        <p-dropdown [options]="categories" class="p-fluid" formControlName="category" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+
+
+<!--    <p-dropdown formControlName="city" [options]="cities" optionLabel="name"></p-dropdown>-->
+
+    <div class=" md:mx-4 mt-4">
+      <textarea class="w-17rem mt-4 lg:w-full" cols="30" formControlName="text" pInputTextarea rows="5"></textarea>
+    </div>
+
+
+    <div class="flex justify-content-center  align-items-center mt-2 md:mt-4 lg:mt-8">
+      <p-button [style]="{'minWidth':'100%'}" label="Secondary" styleClass=" p-button-secondary" type="submit"></p-button>
+    </div>
+  </form>
+
+</div>

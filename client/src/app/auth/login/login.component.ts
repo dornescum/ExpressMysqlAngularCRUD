@@ -47,7 +47,8 @@ export class LoginComponent implements OnInit{
           (res) => {
             console.log('response login', res)
             this.loading = false;
-            this.router.navigate(['/quiz']);
+            // this.router.navigate(['/quiz']);
+            this.router.navigate(['/api-feature']);
           },
           (err) => {
             console.log(err);
