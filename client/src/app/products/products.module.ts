@@ -10,13 +10,15 @@ import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {FileUploadModule} from 'primeng/fileupload';
+import { ListProductsComponent } from './list-products/list-products.component';
 
 
 
 @NgModule({
   declarations: [
     ProductsComponent,
-    ProductComponent
+    ProductComponent,
+    ListProductsComponent
   ],
   imports: [
     CommonModule,

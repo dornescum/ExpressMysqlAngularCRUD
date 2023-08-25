@@ -1,10 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {AuthService} from '../services/auth.service';
+import {TokenService} from '../services/token.service';
+import {Product, User} from '../components/models/user';
+import {ApiService} from '../services/api.service';
+import {environment} from '../../enviroments/enviroment';
 
-interface City {
-  name: string;
-  code: string;
-}
 
 interface Brands {
   name: string;
@@ -15,83 +17,82 @@ interface Categories {
   name: string;
   id: number;
 }
+
 interface Favorite {
   favorite: boolean;
 }
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  selector: 'app-products', templateUrl: './products.component.html', styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit{
+export class ProductsComponent implements OnInit {
   form!: FormGroup;
-  city!: any;
-  towns!: any;
   favorite!: Favorite[];
   uploadedFiles: any[] = [];
-  cities: City[] | undefined;
-  selectedCity!:any;
+  user!: User;
+  userId!: number | undefined;
+
   brands: Brands[] | undefined;
   categories: Categories[] | undefined;
+  userSessionStorage!: string | null;
+  price!: number;
+  quantity!: number;
+  name!: string;
+  text!: string;
+  private baseUrlV2 = environment.apiUrlV2;
 
 
-
-  // private messageService: MessageService
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private token: TokenService,
+              public apiService: ApiService) {
+  }
 
   ngOnInit(): void {
-    this.favorite = [
-      {favorite: true},
-      {favorite: false},
-    ];
+    this.userSessionStorage = this.token.getToken();
+    this.user = this.authService.getUser();
+    this.userId = this.user.id;
+    // console.log('ss', typeof this.userId);
 
+    this.favorite = [{favorite: true}, {favorite: false},];
 
+    this.brands = [{name: 'apple', id: 1}, {name: 'samsung', id: 2},];
 
-    this.cities = [
-      { name: 'New York', code: 'NY' },
-      { name: 'Rome', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'Paris', code: 'PRS' }
-    ];
-
-    this.brands = [
-      { name: 'apple', id:1 },
-      { name: 'samsung', id: 2 },
-    ];
-
-    this.categories = [
-      { name: 'phones', id:1 },
-      { name: 'tablets', id: 2 },
-    ];
+    this.categories = [{name: 'phones', id: 1}, {name: 'tablets', id: 2},];
 
     this.form = this.fb.group({
       name: ['', Validators.required],
       price: ['', Validators.required],
-      favorite:new FormControl<Favorite | null>(null, [Validators.required]),
+      favorite: new FormControl<Favorite | null>(null, [Validators.required]),
       quantity: new FormControl<string | null>(null, [Validators.required]),
       brand: new FormControl<Brands | null>(null, [Validators.required]),
       category: new FormControl<Categories | null>(null, [Validators.required]),
       text: new FormControl<string | null>(null, [Validators.required]),
-      // selectedCity: new FormControl<City | null>(null),
-      // city: new FormControl<City | null>(null)
     });
-    // console.log(this.form.value)
   }
 
   onSubmit() {
-    console.log('click')
     console.log(this.form.value);
-    // this.selectedCity = this.form.value.selectedCity;
-    // console.log(this.selectedCity)
 
-    this.form.valueChanges.subscribe((data) => {
-      console.log("data change", data['selectedCity']);
-    })
+    // console.log('fav : ', this.price)
+    const newProduct: Product = {
+      favorite: this.favorite = this.form.value.favorite.favorite,
+      price: this.price = this.form.value.price,
+      name: this.name = this.form.value.name,
+      quantity: this.quantity = this.form.value.quantity,
+      brand: this.brands = this.form.value.brand.name,
+      category: this.categories = this.form.value.category.name,
+      text: this.categories = this.form.value.text,
+      uid: this.userId
+    }
+    // console.log('n p : ', newProduct)
+
+    // this.apiService.postProduct(`product`, this.userId, newProduct)
+
     if (this.form.valid) {
-      console.log(this.form.value);
+      console.log('IF ', this.form.value);
+      this.apiService.postProduct(`product`, this.userId, newProduct).subscribe(item => {
+        console.log(item)
+      })
+      this.router.navigate(['/products/product-list']);
     }
   }
-
 }

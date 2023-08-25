@@ -24,3 +24,16 @@ export interface Questions {
   question?: string,
   question_id?: string,
 }
+
+
+export interface Product {
+  pid? : number | string,
+  uid : number | undefined,
+  price: number,
+  favorite: boolean,
+  quantity: number,
+  brand: string,
+  category: string,
+  text: string,
+  name: string
+}
