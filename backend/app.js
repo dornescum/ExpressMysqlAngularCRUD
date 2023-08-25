@@ -4,6 +4,8 @@ const path = require("path");
 const logger = require("morgan");
 const cors = require("cors");
 const db = require("./db/config");
+const cookieParser = require('cookie-parser');
+
 
 // Config .env file
 dotenv.config({
@@ -12,6 +14,8 @@ dotenv.config({
 
 // Initialize express app
 const app = express();
+app.use(cookieParser());
+
 
 // Middleware
 app.use(cors());
