@@ -30,10 +30,14 @@ router.post("/:uid",  [
         return res.status(422).json({ errors: errors.array() });
     }
     const userId = req.body.uid;
-    console.log('rb : ', req.body);
-    console.log('uid : ', userId);
-    console.log('req : ', req);
+    // console.log('rb : ', req.body);
+    // console.log('uid : ', userId);
+    // console.log('req : ', req);
     return res.status(200).json({message: 'works '});
 });
+
+router.post("/",  (req, res)=>{
+    return res.status(200).json({message: 'response from product list '});
+})
 
 module.exports = router;

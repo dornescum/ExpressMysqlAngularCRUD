@@ -35,9 +35,15 @@ export class AuthService {
       .pipe(
         map((res: any) => {
           console.log('login map ', res)
+          console.log('typeof res.token : ',typeof res.token)
           const headers = new HttpHeaders()
-            .set('Authorization', `Bearer ${this.token}`)
-            .set('X-Access-Token',`${this.token}`);
+            .set('Authorization', `Bearer ${res.token}`)
+            .set('X-Access-Token',`${res.token}`);
+          //
+          // const headers = new HttpHeaders({
+          //   'Authorization': `Bearer ${res.token}`,
+          //   'X-Access-Token': `${res.token}`
+          // });
           const user = {
             email: credentials.email,
             token: res.token,

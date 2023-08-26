@@ -34,4 +34,25 @@ export class TokenService {
   clearStorage(): void {
     sessionStorage.clear();
   }
+
+  getCookie(name: string): string | null {
+    console.log(document.cookie);
+
+    const value = `; ${document.cookie}`;
+    console.log('value', value)
+    const parts = value.split(`; ${name}=`);
+
+
+    if (parts.length === 2 || (parts.length > 2 && parts[0] === "")) {
+      return parts.pop()?.split(';').shift() || null;
+    }
+
+    if (value.startsWith(`${name}=`)) {
+      return value.split(';')[0].split('=')[1] || null;
+    }
+
+    console.log('value after ', value)
+    return null;
+  }
+
 }

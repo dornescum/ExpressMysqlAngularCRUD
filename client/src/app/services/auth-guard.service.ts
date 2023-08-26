@@ -21,7 +21,7 @@ export class AuthGuardService implements CanActivate {
   constructor(private _route: Router, private token: TokenService) {}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
     const currentUser = this.token.getUser();
-    // console.log('currentUser authGuard', currentUser);
+    console.log('currentUser authGuard', currentUser);
     if (currentUser) {
       return true;
     }

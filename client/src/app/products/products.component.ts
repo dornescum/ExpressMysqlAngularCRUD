@@ -40,6 +40,7 @@ export class ProductsComponent implements OnInit {
   name!: string;
   text!: string;
   private baseUrlV2 = environment.apiUrlV2;
+  uid!: any;
 
 
   constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private token: TokenService,
@@ -48,9 +49,14 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userSessionStorage = this.token.getToken();
+    // it works better this.token.getUser()!!!
     this.user = this.authService.getUser();
-    this.userId = this.user.id;
-    // console.log('ss', typeof this.userId);
+    this.uid = this.token.getUser();
+    this.userId = this.uid.id;
+
+    console.log('ss',  this.userId);
+    console.log('user',  this.user);
+    console.log('uid',  this.uid.id);
 
     this.favorite = [{favorite: true}, {favorite: false},];
 
