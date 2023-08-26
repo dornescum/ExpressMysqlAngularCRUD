@@ -25,20 +25,23 @@ export class AuthService {
   }
 
   login(credentials: any): Observable<any> {
-    console.log('auth service login', credentials)
+    console.log('auth service login', credentials,  { withCredentials: true })
     return this.api
       // .postTypeRequest('auth/login', {
       .postTypeRequest('login-user', {
         email: credentials.email,
         password: credentials.password,
-      })
+      }, { withCredentials: true })
       .pipe(
         map((res: any) => {
           console.log('login map ', res)
+          const headers = new HttpHeaders()
+            .set('Authorization', `Bearer ${this.token}`)
+            .set('X-Access-Token',`${this.token}`);
           const user = {
             email: credentials.email,
             token: res.token,
-            headers:  new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+            headers: headers
           };
           this.token.setToken(res.token);
           this.token.setUser(res.data[0]);

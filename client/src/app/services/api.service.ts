@@ -23,8 +23,8 @@ export class ApiService {
     );
   }
 
-  postTypeRequest(url: string, payload: any) {
-    return this.http.post(`${this.baseUrl}${url}`, payload).pipe(
+  postTypeRequest(url: string, payload: any, options?: any) {
+    return this.http.post(`${this.baseUrl}${url}`, payload, options).pipe(
       map((res) => {
         // console.log('response from post register', res);
         console.log('response from POST service register payload', payload);
