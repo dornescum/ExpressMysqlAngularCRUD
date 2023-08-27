@@ -1,1 +1,22 @@
+<!--suppress ALL-->
+
 <p>list-products works!</p>
+<!--<p-card [style]="{width: '360px', height: '28rem'}" styleClass="p-card-shadow" class="test relative">-->
+<!--  <ng-template pTemplate="header">-->
+<!--&lt;!&ndash;    <img alt="Card" src="{{item?.module_img}}">&ndash;&gt;-->
+<!--    <p>test</p>-->
+<!--  </ng-template>-->
+<!--&lt;!&ndash;  <p class="test">{{item?.module_name}}</p>&ndash;&gt;-->
+<!--</p-card>-->
+
+<ul *ngFor="let product of products">
+  <li >
+    <p-card [style]="{width: '360px', height: '28rem'}" styleClass="p-card-shadow" class="test relative">
+      <ng-template pTemplate="header">
+        {{product.name}}
+      </ng-template>
+      {{ product?.price }}
+    </p-card>
+  </li>
+</ul>
+

@@ -39,7 +39,7 @@ export class ProductsComponent implements OnInit {
     name!: string;
     text!: string;
     private baseUrlV2 = environment.apiUrlV2;
-    uid!: any;
+    uid!: User | null;
 
     //TODO sa adaug imagine in viitor
     uploadedFiles: any[] = [];
@@ -54,11 +54,11 @@ export class ProductsComponent implements OnInit {
         // it works better this.token.getUser()!!!
         this.user = this.authService.getUser();
         this.uid = this.token.getUser();
-        this.userId = this.uid.id;
+        this.userId = this.uid?.id;
 
         console.log('ss', this.userId);
         console.log('user', this.user);
-        console.log('uid', this.uid.id);
+        console.log('uid', typeof this.uid?.id);
 
         this.favorite = [{favorite: true}, {favorite: false},];
 

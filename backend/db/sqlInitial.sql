@@ -266,3 +266,19 @@ create table `ionic-app`
     constraint `ionic-app_pk2`
         unique (title)
 );
+
+# TODO si de adaugat combined
+# CREATE TABLE products (
+#                           id INT AUTO_INCREMENT PRIMARY KEY,
+#                           favorite BOOLEAN,
+#                           price DECIMAL(10, 2),
+#                           name VARCHAR(255),
+#                           quantity INT,
+#                           brand VARCHAR(255),
+#                           category VARCHAR(255),
+#                           text TEXT,
+#                           uid INT,
+#                           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+#                           updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+#                           FOREIGN KEY (uid) REFERENCES users(id)
+# );

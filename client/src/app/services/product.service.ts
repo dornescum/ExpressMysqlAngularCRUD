@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../enviroments/enviroment";
 import {HttpClient} from "@angular/common/http";
+import {Product} from "../components/models/user";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +18,14 @@ export class ProductService {
     return this.http.post(`${this.baseUrlV2}${url}/${id}`, payload);
   }
 
-  getAllProducts(url: string, token: string) {
-    const headers = { 'X-Access-Token': token };
+  // getAllProducts(url: string, token: string):Observable<Product[]> {
+  //   const headers = { 'X-Access-Token': token };
+  //
+  //   return this.http.get(`${this.baseUrlV2}${url}`, {headers});
+  // }
 
-    return this.http.get(`${this.baseUrlV2}${url}`, {headers});
+  getAllProducts(url: string, token: string): Observable<Product[]> {
+    const headers = { 'X-Access-Token': token };
+    return this.http.get<Product[]>(`${this.baseUrlV2}${url}`, { headers });
   }
 }

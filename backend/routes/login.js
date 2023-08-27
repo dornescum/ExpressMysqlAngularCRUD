@@ -46,14 +46,17 @@ router.post("/", [
 
         if (result.length > 0) {
             // console.log('result from login : ', result)
-            const {id, email} = result;
+            const {id, email} = result[0];
+            // console.log('login', result)
+            // console.log('login', result[0].email)
+            const newObjSecurity = {id, email}
             const token = jwt.sign({data: result}, "secret");
-            // console.log('token auth controller: ', token);
+            console.log('token auth controller: ', token);
 
             /*no httpOnly: true because there were problems in fronted */
             res.cookie('jwtToken', token, {  path: '/', domain: 'localhost', secure: false, maxAge: 3600000 })
                 .header("X-Access-Token", token);
-
+            // TODO schimbat cu newObjSecurity
             res.send({
                 message: "Logged in successfully login route", data: result, token
             });

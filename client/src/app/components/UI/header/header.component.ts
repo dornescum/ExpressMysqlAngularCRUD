@@ -52,9 +52,14 @@ export class HeaderComponent implements OnInit{
           routerLink: '/api-feature'
         },
         {
-          label: 'Products',
+          label: 'Add Product',
           icon: 'pi pi-user',
           routerLink: '/products'
+        },
+        {
+          label: 'Products',
+          icon: 'pi pi-user',
+          routerLink: '/products/product-list'
         },
         {
           label: 'Logout',

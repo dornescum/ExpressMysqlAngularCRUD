@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97993ee-894e-4252-acfd-a5db13e750ac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/app/services/product.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a036f93f-95eb-4a08-befa-7eeca969af90.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a036f93f-95eb-4a08-befa-7eeca969af90.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/products/list-products/list-products.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/list-products/list-products.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/products/list-products/list-products.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/list-products/list-products.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/products/products.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/products.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/products/products.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/products.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/product.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +69,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "database.data.extractors.current.export.id": "SQL-Insert-Multirow.sql.groovy",
-    "javascript.nodejs.core.library.configured.version": "16.17.1",
-    "javascript.nodejs.core.library.typings.version": "16.18.41",
+    "javascript.nodejs.core.library.configured.version": "14.17.4",
+    "javascript.nodejs.core.library.typings.version": "14.17.4",
     "last_opened_file_path": "C:/Users/mihaid/Documents/PERSONAL/angular/QUIZ/quizExpressMysqlAngular",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -77,8 +78,8 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Users/mihaidornescu/Documents/PERSONAL/Angular/quiz/client/node_modules/typescript/lib",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "/Users/mihaidornescu/Documents/PERSONAL/ANGULAR/Quiz/quizExpressMysqlAngular/client/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -93,6 +94,16 @@
       <recent name="$PROJECT_DIR$/client/src/app/api-feature" />
       <recent name="$PROJECT_DIR$/client/src/app/api" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="quizExpressMysqlAngular-endpoints | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/quizExpressMysqlAngular-endpoints.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.quizExpressMysqlAngular-endpoints | #1" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -111,6 +122,8 @@
       <workItem from="1692964302260" duration="205000" />
       <workItem from="1692964516695" duration="108000" />
       <workItem from="1692964631015" duration="3554000" />
+      <workItem from="1693141703319" duration="474000" />
+      <workItem from="1693142191699" duration="6295000" />
     </task>
     <servers />
   </component>

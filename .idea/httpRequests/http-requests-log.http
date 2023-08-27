@@ -1,0 +1,9 @@
+GET http://localhost:3000/api/v2/product
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-08-27T162201.401.html
+
+###
+

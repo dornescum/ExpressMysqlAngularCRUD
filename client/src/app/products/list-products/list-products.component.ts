@@ -20,6 +20,7 @@ export class ListProductsComponent implements OnInit {
   userSessionStorage!: string;
 
 
+
   constructor( private router: Router, private authService: AuthService,
               private token: TokenService,
               public productService: ProductService) {
@@ -32,13 +33,14 @@ export class ListProductsComponent implements OnInit {
 
     console.log('user', this.user);
     console.log('uid', this.user.id);
-    console.log('session storage',typeof this.userSessionStorage);
+    console.log('session storage', this.userSessionStorage);
     this.getProducts();
   }
 
   getProducts(){
-    this.productService.getAllProducts('product', this.userSessionStorage).subscribe((items:  any) =>{
+    this.productService.getAllProducts('product', this.userSessionStorage).subscribe((items:  Product[]) =>{
       console.log('items', items)
+      this.products = items;
     })
   }
 
