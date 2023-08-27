@@ -9,7 +9,6 @@ import {Modules} from '../components/models/user';
 })
 export class ApiService {
   private baseUrl = environment.apiUrl;
-  private baseUrlV2 = environment.apiUrlV2;
 
 
   constructor(private http: HttpClient) { }
@@ -80,16 +79,6 @@ export class ApiService {
     }
 
 
-  postProduct(url: string,id:any, payload: any) {
-    console.log(`${this.baseUrl}${url}/${id}`, payload);
-    return this.http.post(`${this.baseUrlV2}${url}/${id}`, payload);
-      // .pipe(
-      // map((res) => {
-      //   // console.log('response from post register', res);
-      //   console.log('response from POST service register payload', payload);
-      //   return res;
-      // })
-    // );
-  }
+
 
 }

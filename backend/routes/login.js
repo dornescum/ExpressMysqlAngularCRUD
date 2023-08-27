@@ -50,10 +50,8 @@ router.post("/", [
             const token = jwt.sign({data: result}, "secret");
             // console.log('token auth controller: ', token);
 
-            // res.cookie('jwtToken', token, { httpOnly: true, path: '/', domain: 'localhost', secure: false, maxAge: 600000 })
-            //     .header("X-Access-Token", token);
             /*no httpOnly: true because there were problems in fronted */
-            res.cookie('jwtToken', token, {  path: '/', domain: 'localhost', secure: false, maxAge: 600000 })
+            res.cookie('jwtToken', token, {  path: '/', domain: 'localhost', secure: false, maxAge: 3600000 })
                 .header("X-Access-Token", token);
 
             res.send({
