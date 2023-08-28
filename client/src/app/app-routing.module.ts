@@ -9,10 +9,10 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
-  {
-    path: 'quiz',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
-  },
+  // {
+  //   path: 'quiz',
+  //   loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+  // },
   {
     path: 'api-feature', // Use the new path here
     loadChildren: () => import('./api-feature/api-feature.module').then(m => m.ApiFeatureModule)

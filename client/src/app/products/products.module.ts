@@ -12,6 +12,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {FileUploadModule} from 'primeng/fileupload';
 import { ListProductsComponent } from './list-products/list-products.component';
 import {CardModule} from "primeng/card";
+import {ChipModule} from 'primeng/chip';
 
 
 
@@ -21,16 +22,17 @@ import {CardModule} from "primeng/card";
     ProductComponent,
     ListProductsComponent
   ],
-    imports: [
-        CommonModule,
-        ProductsRoutingModule,
-        ReactiveFormsModule,
-        ButtonModule,
-        InputTextModule,
-        DropdownModule,
-        InputTextareaModule,
-        FileUploadModule,
-        CardModule
-    ]
+	imports: [
+		CommonModule,
+		ProductsRoutingModule,
+		ReactiveFormsModule,
+		ButtonModule,
+		InputTextModule,
+		DropdownModule,
+		InputTextareaModule,
+		FileUploadModule,
+		CardModule,
+		ChipModule
+	]
 })
 export class ProductsModule { }

@@ -41,11 +41,11 @@ export class HeaderComponent implements OnInit{
           icon: 'pi pi-user',
           routerLink: '/auth/profile'
         },
-        {
-          label: 'Quizzes',
-          icon: 'pi pi-user',
-          routerLink: '/quiz'
-        },
+        // {
+        //   label: 'Quizzes',
+        //   icon: 'pi pi-user',
+        //   routerLink: '/quiz'
+        // },
         {
           label: 'Api',
           icon: 'pi pi-user',

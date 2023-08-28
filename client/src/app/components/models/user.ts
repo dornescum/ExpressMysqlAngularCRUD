@@ -27,7 +27,7 @@ export interface Questions {
 
 
 export interface Product {
-  pid? : number | string,
+  id? : number | string,
   uid : number | undefined,
   price: number,
   favorite: boolean,

@@ -64,7 +64,7 @@ export class AuthService {
 
   register(user: User): Observable<any> {
     // console.log('user from register auth service', user);
-    console.log('user role', user);
+    // console.log('user role', user);
     return this.api.postTypeRequest('register', {
       email: user.email,
       password: user.password,

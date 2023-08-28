@@ -33,13 +33,15 @@ export class TokenService {
 
   clearStorage(): void {
     sessionStorage.clear();
+    // TODO delete cookie
+    // this.deleteCookie("myCookie");
   }
 
   getCookie(name: string): string | null {
-    console.log(document.cookie);
+    // console.log(document.cookie);
 
     const value = `; ${document.cookie}`;
-    console.log('value', value)
+    // console.log('value', value)
     const parts = value.split(`; ${name}=`);
 
 
@@ -53,6 +55,10 @@ export class TokenService {
 
     console.log('value after ', value)
     return null;
+  }
+
+   deleteCookie(name: string): void {
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
   }
 
 }

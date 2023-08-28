@@ -286,22 +286,29 @@ CREATE TABLE products
     FOREIGN KEY(uid) REFERENCES users(id)
 );
 
-DELIMITER //
-CREATE TRIGGER generate_codebar
-    BEFORE INSERT ON products
-    FOR EACH ROW
-BEGIN
-    SET NEW.codebar = CONCAT(NEW.id, NEW.brand, NEW.category, NEW.created_at, NEW.storage);
-END;
-//
-DELIMITER ;
+# DELIMITER //
+# CREATE TRIGGER generate_codebar
+#     BEFORE INSERT ON products
+#     FOR EACH ROW
+# BEGIN
+#     SET NEW.codebar = CONCAT(NEW.id, NEW.brand, NEW.category, NEW.created_at, NEW.storage);
+# END;
+# //
+# DELIMITER ;
 
+# FIXME from work 28/08
+# create table brands
+# (
+#     brand_id   INTEGER primary key auto_increment,
+#     brand_name text not null unique,
+#     brand_img  text
+# );
 
 create table brands
 (
     brand_id   INTEGER primary key auto_increment,
-    brand_name text not null unique,
-    brand_img  text
+    brand_name varchar(55) not null unique,
+    brand_img  varchar(255)
 );
 
 create table categories
@@ -326,3 +333,10 @@ INSERT INTO categories (category_id, category_name) VALUES (2, 'tablet');
 INSERT INTO categories (category_id, category_name) VALUES (3, 'tv');
 INSERT INTO categories (category_id, category_name) VALUES (4, 'laptop');
 INSERT INTO categories (category_id, category_name) VALUES (5, 'pc');
+
+# ============================
+# change privileges on work
+GRANT SUPER ON *.* TO 'miki'@'localhost';
+FLUSH PRIVILEGES;
+# IMPORTANT !!!
+# ============================

@@ -15,7 +15,8 @@ import {Subscription} from "rxjs";
 })
 export class ListProductsComponent implements OnInit {
   user!: User;
-  userId!: any;
+  userId!: number | undefined;
+  // productId!: any;
   products: Product[]= [];
   userSessionStorage!: string;
 
@@ -32,16 +33,27 @@ export class ListProductsComponent implements OnInit {
     this.userSessionStorage = this.token.getToken() as string;
 
     console.log('user', this.user);
-    console.log('uid', this.user.id);
-    console.log('session storage', this.userSessionStorage);
+    console.log('uid',typeof this.user.id);
+    // console.log('session storage', this.userSessionStorage);
     this.getProducts();
   }
 
   getProducts(){
-    this.productService.getAllProducts('product', this.userSessionStorage).subscribe((items:  Product[]) =>{
-      console.log('items', items)
+    this.productService.getAllProducts('product', this.userSessionStorage, this.userId).subscribe((items:  Product[]) =>{
+      // console.log('items', items)
+      // console.log('items', items[0]?.id)
       this.products = items;
     })
+  }
+
+
+  goToProductId(id: any){
+    console.log('go to product id: ', id)
+
+    // this.productService.getProductId('product', this.userSessionStorage, this.userId, id).subscribe(item =>{
+    //   console.log('item : ', item)
+    // })
+    this.router.navigate(['products/product/', id])
   }
 
 }

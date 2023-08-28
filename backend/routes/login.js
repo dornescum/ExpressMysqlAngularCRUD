@@ -30,7 +30,7 @@ router.post("/", [
     const hashedPassword = md5(password.toString());
 
     db.query("SELECT * FROM users WHERE email = ? AND password = ?", [email, hashedPassword], (err, result) => {
-        // console.log('result login service', result)
+        console.log('result login service', result)
         // console.log('err login service', err)
         if (err) {
             res.send({
@@ -49,17 +49,37 @@ router.post("/", [
             const {id, email} = result[0];
             // console.log('login', result)
             // console.log('login', result[0].email)
-            const newObjSecurity = {id, email}
-            const token = jwt.sign({data: result}, "secret");
-            console.log('token auth controller: ', token);
 
-            /*no httpOnly: true because there were problems in fronted */
-            res.cookie('jwtToken', token, {  path: '/', domain: 'localhost', secure: false, maxAge: 3600000 })
-                .header("X-Access-Token", token);
-            // TODO schimbat cu newObjSecurity
-            res.send({
-                message: "Logged in successfully login route", data: result, token
-            });
+            // =====================
+            // const newObjSecurity = {id, email}
+            // const token = jwt.sign({data: result}, "secret");
+            // // console.log('token auth controller: ', token);
+            // //
+            // // console.log('newObjSecurity:', newObjSecurity);
+            // // console.log('token:', token);
+            // // FIXME for linux
+            // /*no httpOnly: true because there were problems in fronted */
+            // res.cookie('jwtToken', token, {  path: '/', domain: 'localhost', secure: false, maxAge: 3600000 })
+            //     .header("X-Access-Token", token);
+            // // TODO schimbat cu newObjSecurity
+            // res.send({
+            //     message: "Logged in successfully login route", data: result, token
+            // });
+            // ====================
+
+            try {
+                const token = jwt.sign({ data: result }, "secret");
+                // Set the cookie and headers
+                res.cookie('jwtToken', token, { path: '/', domain: 'localhost', secure: false, maxAge: 3600000 })
+                    .header("X-Access-Token", token);
+                res.send({
+                    message: "Logged in successfully login route", data: result, token
+                });
+            } catch (error) {
+                console.error('JWT signing error:', error.message);
+                res.status(500).send({ message: 'Internal Server Error' });
+            }
+
         }
     });
 });

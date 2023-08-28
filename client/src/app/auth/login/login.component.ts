@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit{
         .login({ email: this.email, password: this.password })
         .subscribe(
           (res) => {
-            console.log('response login', res)
+            // console.log('response login', res)
             this.loading = false;
             // this.router.navigate(['/quiz']);
             this.router.navigate(['/products']);

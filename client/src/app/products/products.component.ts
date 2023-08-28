@@ -56,15 +56,15 @@ export class ProductsComponent implements OnInit {
         this.uid = this.token.getUser();
         this.userId = this.uid?.id;
 
-        console.log('ss', this.userId);
-        console.log('user', this.user);
-        console.log('uid', typeof this.uid?.id);
+        // console.log('ss', this.userId);
+        // console.log('user', this.user);
+        // console.log('uid', typeof this.uid?.id);
 
         this.favorite = [{favorite: true}, {favorite: false},];
 
         this.brands = [{name: 'apple', id: 1}, {name: 'samsung', id: 2},];
 
-        this.categories = [{name: 'phones', id: 1}, {name: 'tablets', id: 2},];
+        this.categories = [{name: 'phone', id: 1}, {name: 'tablet', id: 2},];
 
         this.form = this.fb.group({
             name: ['', Validators.required],
@@ -78,9 +78,9 @@ export class ProductsComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log(this.form.value);
-
-        // console.log('fav : ', this.price)
+        // console.log(this.form.value);
+        //
+        // console.log('fav : ', this.form.value.brand.name)
         const newProduct: Product = {
             favorite: this.favorite = this.form.value.favorite.favorite,
             price: this.price = this.form.value.price,
@@ -96,7 +96,7 @@ export class ProductsComponent implements OnInit {
         // this.apiService.postProduct(`product`, this.userId, newProduct)
 
         if (this.form.valid) {
-            console.log('IF ', this.form.value);
+            // console.log('IF ', this.form.value);
             this.productService.postProduct(`product`, this.userId, newProduct).subscribe(item => {
                 console.log(item)
             })

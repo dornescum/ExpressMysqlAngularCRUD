@@ -24,8 +24,14 @@ export class ProductService {
   //   return this.http.get(`${this.baseUrlV2}${url}`, {headers});
   // }
 
-  getAllProducts(url: string, token: string): Observable<Product[]> {
+  getAllProducts(url: string, token: string, uid: any): Observable<Product[]> {
     const headers = { 'X-Access-Token': token };
-    return this.http.get<Product[]>(`${this.baseUrlV2}${url}`, { headers });
+    return this.http.get<Product[]>(`${this.baseUrlV2}${url}/${uid}`, { headers });
   }
+
+  getProductId(url: string, token: string, uid: any, pid: any): Observable<Product[]> {
+    const headers = { 'X-Access-Token': token };
+    return this.http.get<Product[]>(`${this.baseUrlV2}${url}/${uid}/${pid}`, { headers });
+  }
+
 }
