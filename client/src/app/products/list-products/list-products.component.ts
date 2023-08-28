@@ -31,19 +31,26 @@ export class ListProductsComponent implements OnInit {
     this.user = this.token.getUser();
     this.userId = this.user.id;
     this.userSessionStorage = this.token.getToken() as string;
-
-    console.log('user', this.user);
-    console.log('uid',typeof this.user.id);
+    //
+    // console.log('user', this.user);
+    // console.log('uid',typeof this.user.id);
     // console.log('session storage', this.userSessionStorage);
     this.getProducts();
   }
 
   getProducts(){
     this.productService.getAllProducts('product', this.userSessionStorage, this.userId).subscribe((items:  Product[]) =>{
-      // console.log('items', items)
+      console.log('items', items)
       // console.log('items', items[0]?.id)
       this.products = items;
-    })
+    },
+      (error) => {
+        if (error.status === 429) {
+          // Redirect to a different page, maybe a rate limit warning page.
+          this.router.navigate(['/error/429']);
+        }
+        console.log('Error fetching products:', error);
+      })
   }
 
 
