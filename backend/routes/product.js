@@ -159,7 +159,7 @@ router.get("/:uid/:pid",  (req, res) => {
                 res.status(204).json({ message: "No content" });
             }
             else {
-                res.status(200).json(result);
+                res.status(200).json(result[0]);
             }
         });
 

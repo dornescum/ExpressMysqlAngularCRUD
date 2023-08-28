@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97993ee-894e-4252-acfd-a5db13e750ac" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a036f93f-95eb-4a08-befa-7eeca969af90.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a036f93f-95eb-4a08-befa-7eeca969af90.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2023__17_04__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/products/product/product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/product/product.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/products/product/product.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/product/product.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/product.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +119,7 @@
       <workItem from="1692964631015" duration="3554000" />
       <workItem from="1693141703319" duration="474000" />
       <workItem from="1693142191699" duration="7482000" />
-      <workItem from="1693227435077" duration="1249000" />
+      <workItem from="1693227435077" duration="2587000" />
     </task>
     <servers />
   </component>
