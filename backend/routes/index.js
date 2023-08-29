@@ -13,6 +13,7 @@ const login = require('./login');
 const modules = require('./modules');
 const ionic = require('./ionic-app');
 const product= require('./product');
+const profile= require('./profile');
 // const usersRoute = require("./users");
 
 
@@ -23,5 +24,6 @@ router.use("/api/v1/modules", modules);
 router.use("/api/v1/ionic-app", ionic);
 router.use("/api/v2/product", productLimiter, product)
 // router.use("/api/v1/users", usersRoute);
+router.use("/api/v1/profile", profile);
 
 module.exports = router;

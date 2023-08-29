@@ -1,0 +1,21 @@
+<p>img-testing works!</p>
+<!--<form action="/stats" enctype="multipart/form-data" method="post">-->
+<!--  <div class="form-group">-->
+<!--    <input type="file" class="form-control-file" name="uploaded_file">-->
+<!--    <input type="text" class="form-control" placeholder="Number of speakers" name="nspeakers">-->
+<!--    <input type="submit" value="Get me the stats!" class="btn btn-default">-->
+<!--  </div>-->
+<!--</form>-->
+
+
+<form  [formGroup]="formGroup" (ngSubmit)="onSubmit()"  >
+  <div class="mb-3">
+    <label for="formFile" class="form-label">Upload Profile Pic</label>
+    <input type="file" class="form-control" id="formFile"   formControlName="img"  (change) = "imageUpload($event)">
+  </div>
+
+  <div>
+    <button type="submit"  class="btn btn-primary">Submit</button>
+  </div>
+</form>
+

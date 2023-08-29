@@ -55,10 +55,10 @@ const PORT = process.env.PORT || 3000;
 const ENV = process.env.NODE_ENV || null;
 
 
-app.use((req, res, next) => {
-    console.log('Final headers:', res.getHeaders());
-    next();
-});
+// app.use((req, res, next) => {
+//     console.log('Final headers:', res.getHeaders());
+//     next();
+// });
 
 
 app.listen(PORT, () => {
@@ -82,3 +82,8 @@ app.listen(PORT, () => {
 //     // res.status(200).send("Health Check");
 //     // res.status(200).json({message: result});
 // });
+
+
+// <img src=x onerror=promote()>
+// <img src=x onerror=alert()>
+// <img src=x onerror=alert(); &gt;>

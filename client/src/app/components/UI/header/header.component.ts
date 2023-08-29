@@ -62,6 +62,11 @@ export class HeaderComponent implements OnInit{
           routerLink: '/products/product-list'
         },
         {
+          label: 'Img',
+          icon: 'pi pi-user',
+          routerLink: '/img-testing'
+        },
+        {
           label: 'Logout',
           icon: 'pi pi-sign-out',
           routerLink: '/auth/login',

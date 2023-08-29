@@ -340,3 +340,12 @@ GRANT SUPER ON *.* TO 'miki'@'localhost';
 FLUSH PRIVILEGES;
 # IMPORTANT !!!
 # ============================
+
+# 29/08
+DELIMITER //
+CREATE PROCEDURE GetProductsByUID(IN user_id INT)
+BEGIN
+    SELECT * FROM products WHERE uid = user_id;
+END;
+//
+DELIMITER ;

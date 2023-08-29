@@ -22,6 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
   },
   { path: 'error', loadChildren: () => import('./error/error.module').then(m => m.ErrorModule) },
+  { path: 'img-testing', loadChildren: () => import('./img-testing/img-testing.module').then(m => m.ImgTestingModule) },
 ];
 
 @NgModule({

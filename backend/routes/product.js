@@ -58,8 +58,8 @@ router.post("/:uid", [
     // console.log('fav ', favorite);
     // console.log('brand ', brand);
     // console.log('category ', category);
-    console.log('uid ', uid);
-    console.log('id ', id);
+    // console.log('uid ', uid);
+    // console.log('id ', id);
 
     // FIXME make trigger for update codebar
     const brandNr = getBrandType(brand);
@@ -112,8 +112,8 @@ router.get("/:uid",  (req, res) => {
         // res.status(200).send(products);
         sql = `SELECT * FROM products WHERE uid = ?`;
         db.query(sql,[uid], (err, result) => {
-            console.log('result get product ', result);
-            console.log('error get product ', err);
+            // console.log('result get product ', result);
+            // console.log('error get product ', err);
             if (err) {
                 console.error(err.message);
                 res.status(500).json({ error: "Internal Server Error" });
@@ -140,8 +140,8 @@ router.get("/:uid/:pid",  (req, res) => {
     const uid = req.params.uid;
     const pid = req.params.pid;
 
-    console.log('uid  :', uid)
-    console.log('pid  :', pid)
+    // console.log('uid  :', uid)
+    // console.log('pid  :', pid)
     if (!token) return res.status(401).send("No token provided.");
 
     jwt.verify(token, 'secret', (err, decoded) => {
@@ -149,8 +149,8 @@ router.get("/:uid/:pid",  (req, res) => {
         // res.status(200).send(products);
         sql = `SELECT * FROM products WHERE uid = ? AND id = ?`;
         db.query(sql,[uid, pid], (err, result) => {
-            console.log('result get product ', result);
-            console.log('error get product ', err);
+            // console.log('result get product ', result);
+            // console.log('error get product ', err);
             if (err) {
                 console.error(err.message);
                 res.status(500).json({ error: "Internal Server Error" });
@@ -167,3 +167,45 @@ router.get("/:uid/:pid",  (req, res) => {
 })
 
 module.exports = router;
+
+//
+// procedura stocata pt uid
+// DELIMITER //
+// CREATE PROCEDURE GetProductsByUID(IN user_id INT)
+// BEGIN
+// SELECT * FROM products WHERE uid = user_id;
+// END;
+// //
+// DELIMITER ;
+
+// node modificat pr procedura
+// router.get("/:uid", (req, res) => {
+//     const token = req.headers['x-access-token'];
+//
+//     console.log('TOKEN :', token);
+//
+//     const uid = req.params.uid;
+//
+//     if (!token) return res.status(401).send("No token provided.");
+//
+//     jwt.verify(token, 'secret', (err, decoded) => {
+//         if (err) return res.status(403).send("Invalid token.");
+//
+//         // Call the stored procedure
+//         const sql = "CALL GetProductsByUID(?)";
+//         db.query(sql, [uid], (err, result) => {
+//             console.log('result get product ', result[0]);
+//             console.log('error get product ', err);
+//             if (err) {
+//                 console.error(err.message);
+//                 res.status(500).json({ error: "Internal Server Error" });
+//             }
+//             else if(result[0].length < 1){
+//                 res.status(204).json({ message: "No content" });
+//             }
+//             else {
+//                 res.status(200).json(result[0]);
+//             }
+//         });
+//     });
+// });
