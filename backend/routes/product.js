@@ -38,7 +38,7 @@ router.post("/:uid", [
         return res.status(422).json({errors: errors.array()});
     }
     const userId = req.body.uid;
-    // console.log('rb : ', req.body);
+    console.log('rb : ', req.body);
     // console.log('uid : ', userId);
     // console.log('req : ', req);
     const obj = {
@@ -52,7 +52,7 @@ router.post("/:uid", [
         uid: req.body.uid
     };
     // console.log('obj', obj)
-    products.push(obj)
+    // products.push(obj)
     // console.log('products :', products)
     const {favorite, price, name, quantity, brand, category, text, uid, id} = req.body;
     // console.log('fav ', favorite);
@@ -98,12 +98,12 @@ router.post("/:uid", [
 router.get("/:uid",  (req, res) => {
     const token = req.headers['x-access-token'];
     // TODO create middleware for token
-    console.log('TOKEN :', token)
+    // console.log('TOKEN :', token)
 
     const uid = req.params.uid;
     const pid = req.params.pid;
 
-    console.log('uid  :', uid)
+    // console.log('uid  :', uid)
     // console.log('pid  :', pid)
     if (!token) return res.status(401).send("No token provided.");
 
@@ -164,7 +164,8 @@ router.get("/:uid/:pid",  (req, res) => {
         });
 
     });
-})
+});
+
 
 module.exports = router;
 

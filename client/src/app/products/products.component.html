@@ -1,5 +1,9 @@
 <!--suppress ALL-->
+<div class="flex justify-content-center  align-items-center my-4">
+  <h1>{{message}}</h1>
+</div>
 <div class="flex justify-content-center  align-items-center mt-2 md:mt-4 xl:mt-8">
+
   <form (ngSubmit)="onSubmit()" [formGroup]="form" class="bg-gray-100 border-round-md p-4 md:p-2 lg:p-8">
     <div class="flex flex-column lg:flex-row">
       <div class="flex flex-column mx-0 md:mx-4 my-1">
@@ -25,11 +29,11 @@
       <div class="flex flex-column mx-0 md:mx-4 my-1 w-17rem md:w-13rem full-width-dropdown">
         <label class="mb-2 text-base font-semibold	text-500" for="name">Brand</label>
         <!--        [style]="{'minWidth':'19%'}"-->
-        <p-dropdown [options]="brands" class="p-fluid" formControlName="brand" optionLabel="name"></p-dropdown>
+        <p-dropdown [options]="brands" class="p-fluid" formControlName="brand" optionLabel="brand_name"></p-dropdown>
       </div>
       <div class="flex flex-column  mx-0 md:mx-4 my-1 w-17rem md:w-13rem ">
         <label class="mb-2 text-base font-semibold	text-500" for="category">Category</label>
-        <p-dropdown [options]="categories" class="p-fluid" formControlName="category" optionLabel="name"></p-dropdown>
+        <p-dropdown [options]="categories" class="p-fluid" formControlName="category" optionLabel="category_name"></p-dropdown>
       </div>
     </div>
 

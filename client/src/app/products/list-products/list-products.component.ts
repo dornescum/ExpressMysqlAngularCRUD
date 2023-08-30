@@ -4,7 +4,8 @@ import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {TokenService} from "../../services/token.service";
 import {ApiService} from "../../services/api.service";
-import {Product, User} from "../../components/models/user";
+import {User} from "../../components/models/user";
+import {Product} from "../../components/models/products";
 import {ProductService} from "../../services/product.service";
 import {Subscription} from "rxjs";
 
@@ -19,6 +20,7 @@ export class ListProductsComponent implements OnInit {
   // productId!: any;
   products: Product[]= [];
   userSessionStorage!: string;
+  message:string = '';
 
 
 
@@ -41,8 +43,15 @@ export class ListProductsComponent implements OnInit {
   getProducts(){
     this.productService.getAllProducts('product', this.userSessionStorage, this.userId).subscribe((items:  Product[]) =>{
       console.log('items', items)
-      // console.log('items', items[0]?.id)
+      console.log('items', items?.length)
+        if (items?.length === undefined){
+          this.message = 'No products';
+        }
+
       this.products = items;
+      // if (this.products.length <1){
+      //   this.message = 'No products';
+      // }
     },
       (error) => {
         if (error.status === 429) {

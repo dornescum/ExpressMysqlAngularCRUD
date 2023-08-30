@@ -26,14 +26,4 @@ export interface Questions {
 }
 
 
-export interface Product {
-  id? : number | string,
-  uid : number | undefined,
-  price: number,
-  favorite: boolean,
-  quantity: number,
-  brand: string,
-  category: string,
-  text: string,
-  name: string
-}
+

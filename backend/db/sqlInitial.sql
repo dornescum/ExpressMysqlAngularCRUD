@@ -341,7 +341,7 @@ FLUSH PRIVILEGES;
 # IMPORTANT !!!
 # ============================
 
-# 29/08
+# 29/08 merge pe win nu si pe mini
 DELIMITER //
 CREATE PROCEDURE GetProductsByUID(IN user_id INT)
 BEGIN

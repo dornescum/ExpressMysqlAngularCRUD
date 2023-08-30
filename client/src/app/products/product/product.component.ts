@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {Product, User} from '../../components/models/user';
+import {User} from '../../components/models/user';
+import {Product} from "../../components/models/products";
 import {environment} from '../../../enviroments/enviroment';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
