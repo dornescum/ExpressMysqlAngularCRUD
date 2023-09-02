@@ -24,7 +24,7 @@ export class ListProductsComponent implements OnInit {
   message:string = '';
   errorMsg='';
   loading = false;
-  value='2222432';
+  // value='2222432';
 
 
 

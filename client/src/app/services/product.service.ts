@@ -19,6 +19,13 @@ export class ProductService {
     return this.http.post(`${this.baseUrlV2}${url}/${id}`, payload);
   }
 
+  updateProduct(url: string, uid:any, payload: any, pid: any) {
+    console.log('update service pid', pid)
+    console.log('update service uid', uid)
+    console.log(`'update service ',${this.baseUrl}${url}/${pid}`, payload);
+    return this.http.put(`${this.baseUrlV2}${url}/${pid}`, payload);
+  }
+
   // getAllProducts(url: string, token: string):Observable<Product[]> {
   //   const headers = { 'X-Access-Token': token };
   //

@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 import { ProductComponent } from './product/product.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
@@ -36,7 +36,8 @@ import { NgxBarcode6Module } from 'ngx-barcode6';
     FileUploadModule,
     CardModule,
     ChipModule,
-    NgxBarcode6Module
+    NgxBarcode6Module,
+    FormsModule
   ]
 })
 export class ProductsModule { }

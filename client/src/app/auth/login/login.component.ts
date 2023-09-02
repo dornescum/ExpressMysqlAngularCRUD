@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit{
   password = '';
   error = '';
   loading = false;
+  connectionErr='';
 
   constructor(private router: Router, private auth: AuthService) {}
 
@@ -51,8 +52,12 @@ export class LoginComponent implements OnInit{
             this.router.navigate(['/products']);
           },
           (err) => {
-            console.log(err);
-            this.error = err.error.message;
+            console.log('erroare 1', err);
+            if (err.status === 0){}
+            // this.error = 'Server is down ... sorry :)';
+            // this.error = 'Server is down ... sorry ';
+            this.error = `Server is down ... sorry 😓`;
+            console.log('error ', this.error)
             this.loading = false;
           }
         );

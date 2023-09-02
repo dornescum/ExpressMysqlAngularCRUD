@@ -22,6 +22,16 @@ export class ProductComponent implements OnInit{
   userSessionStorage!: string;
   pid!: string;
   // product: Product;
+  isEditable = false;
+  name!: string;
+  price!: number;
+  brand!: string;
+  favorite!: string;
+  quantity!: number;
+  category!: string;
+  codebar!: string;
+  text!: string;
+message = '';
 
   constructor(private router: Router, private authService: AuthService,
               private token: TokenService,
@@ -60,6 +70,46 @@ export class ProductComponent implements OnInit{
     this.productService.getProductId('product', this.userSessionStorage, this.userId, this.pid).subscribe(item =>{
       console.log('item : ', item)
       this.product = item;
+        this.name = this.product.name;
+        this.price = this.product.price;
+        this.brand = this.product.brand;
+        this.favorite = this.product?.favorite;
+        this.quantity = this.product.quantity;
+        this.category = this.product.category;
+        this.codebar = this.product.codebar as string;
+        this.text = this.product.text;
     })
+  }
+
+  toggleEdit() {
+    this.isEditable = !this.isEditable;
+  }
+
+  updateProduct(){
+    console.log('name', this.name)
+
+    const updatedProduct: Product = {
+      favorite: this.favorite ,
+      price: this.price ,
+      name: this.name ,
+      quantity: this.quantity ,
+      brand: this.brand ,
+      category: this.category ,
+      text: this.text,
+      uid: this.userId,
+      pid: this.pid
+    }
+
+    this.productService.updateProduct(`product`, this.userId, updatedProduct, this.pid)
+      .subscribe(
+        item => {
+          console.log('item product ',item);
+          this.router.navigate(['/products/product-list']);
+        },
+        error => {
+          console.log('Error:', error);
+          this.message = 'Something went wrong';
+        }
+      );
   }
 }

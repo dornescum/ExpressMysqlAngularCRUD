@@ -167,6 +167,65 @@ router.get("/:uid/:pid",  (req, res) => {
 });
 
 
+router.put("/:uid", [
+    check('favorite').isBoolean(),
+    check('name').isString(),
+    check('quantity').isInt(),
+    check('brand').isString(),
+    check('category').isString(),
+    check('text').isString(),
+    check('uid').isInt(),
+], (req, res) => {
+    const errors = validationResult(req);
+
+    const {favorite, price, name, quantity, brand, category, text, uid, pid} = req.body;
+    console.log('price put server', favorite)
+    console.log('price put server', price)
+    console.log('price put server', name)
+    console.log('price put server', quantity)
+    console.log('price put server', brand)
+    console.log('price put server', category)
+    console.log('price put server', text)
+    console.log('price put server', uid)
+    console.log('price put server', pid)
+    console.log('price put server', req.body)
+
+    const brandNr = getBrandType(brand);
+    const categoryNr = getCategoryNr(category);
+    console.log('category nr ', categoryNr);
+
+    const sql = `UPDATE products SET favorite = ?, price = ?, name = ?, quantity = ?, brand = ?, category = ?, text = ?, uid = ?
+                WHERE id = ?`;
+    db.query(sql, [favorite, price, name, quantity, brand, category, text, uid, pid], (err, result) => {
+        console.log('update result ', result)
+        if (err) {
+            console.error(err.message);
+            return res.status(500).json({
+                message: "Something went wrong, please try again",
+                statusCode: 500,
+                data: err,
+            });
+        }
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                message: "Product not found",
+                statusCode: 404,
+            });
+        }
+        return res.status(200).json({
+            message: "Product updated successfully",
+            statusCode: 200,
+        });
+    });
+
+
+
+    // return res.status(200).json({
+    //     message: "received",
+    // });
+})
+
+
 module.exports = router;
 
 //
