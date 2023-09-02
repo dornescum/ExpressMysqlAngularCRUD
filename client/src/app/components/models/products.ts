@@ -18,5 +18,6 @@ export interface Product {
   brand: string,
   category: string,
   text: string,
-  name: string
+  name: string,
+  codebar?: string
 }

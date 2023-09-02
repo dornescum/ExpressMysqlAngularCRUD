@@ -9,6 +9,7 @@ import {Product} from "../../components/models/products";
 import {ProductService} from "../../services/product.service";
 import {Subscription} from "rxjs";
 
+
 @Component({
   selector: 'app-list-products',
   templateUrl: './list-products.component.html',
@@ -21,6 +22,9 @@ export class ListProductsComponent implements OnInit {
   products: Product[]= [];
   userSessionStorage!: string;
   message:string = '';
+  errorMsg='';
+  loading = false;
+  value='2222432';
 
 
 
@@ -41,13 +45,14 @@ export class ListProductsComponent implements OnInit {
   }
 
   getProducts(){
+    this.loading = true;
     this.productService.getAllProducts('product', this.userSessionStorage, this.userId).subscribe((items:  Product[]) =>{
       console.log('items', items)
       console.log('items', items?.length)
         if (items?.length === undefined){
           this.message = 'No products';
         }
-
+      this.loading = false;
       this.products = items;
       // if (this.products.length <1){
       //   this.message = 'No products';
@@ -59,6 +64,7 @@ export class ListProductsComponent implements OnInit {
           this.router.navigate(['/error/429']);
         }
         console.log('Error fetching products:', error);
+        this.errorMsg = 'Something went wrong';
       })
   }
 

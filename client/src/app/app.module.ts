@@ -20,6 +20,7 @@ import {MenubarModule} from "primeng/menubar";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpClientModule,
     PanelModule,
     MenuModule,
-    MenubarModule
+    MenubarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,6 +16,8 @@ import {CardModule} from "primeng/card";
 import {ChipModule} from 'primeng/chip';
 
 
+// Import ngx-barcode module
+import { NgxBarcode6Module } from 'ngx-barcode6';
 
 @NgModule({
   declarations: [
@@ -23,17 +25,18 @@ import {ChipModule} from 'primeng/chip';
     ProductComponent,
     ListProductsComponent
   ],
-	imports: [
-		CommonModule,
-		ProductsRoutingModule,
-		ReactiveFormsModule,
-		ButtonModule,
-		InputTextModule,
-		DropdownModule,
-		InputTextareaModule,
-		FileUploadModule,
-		CardModule,
-		ChipModule
+  imports: [
+    CommonModule,
+    ProductsRoutingModule,
+    ReactiveFormsModule,
+    ButtonModule,
+    InputTextModule,
+    DropdownModule,
+    InputTextareaModule,
+    FileUploadModule,
+    CardModule,
+    ChipModule,
+    NgxBarcode6Module
   ]
 })
 export class ProductsModule { }

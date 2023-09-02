@@ -1,10 +1,9 @@
 <!--suppress ALL-->
-<div class="flex justify-content-center  align-items-center my-4">
+<div class="flex justify-content-center  align-items-center my-0 xl:my-2">
   <h1>{{message}}</h1>
 </div>
-<div class="flex justify-content-center  align-items-center mt-2 md:mt-4 xl:mt-8">
-
-  <form (ngSubmit)="onSubmit()" [formGroup]="form" class="bg-gray-100 border-round-md p-4 md:p-2 lg:p-8">
+<div class="flex justify-content-center  align-items-center mt-0 md:mt-2 xl:mt-0"  [ngClass]="message === ''? '':'hide'">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form" class="bg-gray-100 border-round-md p-4 md:p-2 xl:p-4 xl:pb-4">
     <div class="flex flex-column lg:flex-row">
       <div class="flex flex-column mx-0 md:mx-4 my-1">
         <label class="mb-2 text-base font-semibold	text-500" for="name">Name</label>
@@ -45,8 +44,9 @@
     </div>
 
 
-    <div class="flex justify-content-center  align-items-center mt-2 md:mt-4 lg:mt-8">
-      <p-button [style]="{'minWidth':'100%'}" label="Secondary" styleClass=" p-button-secondary" type="submit"></p-button>
+    <div class="flex justify-content-center  align-items-center mt-2 md:mt-4 lg:mt-2">
+      <p-button [style]="{'minWidth':'100%'}" label="Secondary" styleClass=" p-button-secondary" type="submit"
+                [disabled]="!form.valid"></p-button>
     </div>
   </form>
 

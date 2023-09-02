@@ -21,7 +21,7 @@ import {Categories, Product, Brands} from "../components/models/products";
 // }
 
 interface Favorite {
-    favorite: boolean;
+    favorite: string;
     id: number
 }
 
@@ -42,42 +42,37 @@ export class ProductsComponent implements OnInit {
     text!: string;
     private baseUrlV2 = environment.apiUrlV2;
     uid!: User | null;
-    message= ''
+    message= '';
+
+
 
     //TODO sa adaug imagine in viitor
     uploadedFiles: any[] = [];
 
 
-    constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private token: TokenService,
+    constructor(private fb: FormBuilder, private router: Router,
+                private authService: AuthService,
+                private token: TokenService,
                 public apiService: ApiService, private productService: ProductService) {
     }
 
     ngOnInit(): void {
         this.userSessionStorage = this.token.getToken() as string;
-      // this.userSessionStorage = this.token.getToken() as string;
-
-      // it works better this.token.getUser()!!!
         this.user = this.authService.getUser();
         this.uid = this.token.getUser();
         this.userId = this.uid?.id;
         this.getCategories();
         this.getBrands();
 
-        // console.log('ss', this.userId);
-        // console.log('user', this.user);
-        // console.log('uid', typeof this.uid?.id);
 
-        this.favorite = [{favorite: true, id: 1}, {favorite: false, id: 2},];
-
-        // this.brands = [{name: 'apple', id: 1}, {name: 'samsung', id: 2},];
-
-        // this.categories = [{name: 'phone', id: 1}, {name: 'tablet', id: 2},];
+        this.favorite = [{favorite: 'true', id: 1}, {favorite: 'false', id: 2},];
 
         this.form = this.fb.group({
             name: ['', Validators.required],
             price: ['', Validators.required],
-            favorite: new FormControl<Favorite | null>(null, [Validators.required]),
-            quantity: new FormControl<string | null>(null, [Validators.required]),
+            // favorite: new FormControl<Favorite | null>(null, [Validators.required]),
+          favorite: new FormControl(this.favorite[0], [Validators.required]),
+          quantity: new FormControl<string | null>(null, [Validators.required]),
             brand: new FormControl<Brands | null>(null, [Validators.required]),
             category: new FormControl<Categories | null>(null, [Validators.required]),
             text: new FormControl<string | null>(null, [Validators.required]),
@@ -85,15 +80,19 @@ export class ProductsComponent implements OnInit {
     }
 
     onSubmit() {
-        // console.log(this.form.value);
-        //
-        // console.log('fav : ', this.form.value.brand.name)
+      console.log('click')
+      console.log('fav ',this.form.value.favorite?.favorite);
 
+      console.log('Form Validity:', this.form.valid);
+      console.log('Form Errors:', this.form.errors);
+      console.log('Favorite Control Errors:', this.form.get('favorite')?.errors);
 
-        // this.apiService.postProduct(`product`, this.userId, newProduct)
+      if (this.form.valid) {
+            console.log('IF ', this.form.value);
+          console.log(this.form.value.favorite);
+          // console.log(this.form.get('favorite').value);
+          console.log(this.form.valid);
 
-        if (this.form.valid) {
-            // console.log('IF ', this.form.value);
           const newProduct: Product = {
             favorite: this.favorite = this.form.value.favorite.favorite,
             price: this.price = this.form.value.price,
@@ -108,7 +107,7 @@ export class ProductsComponent implements OnInit {
             this.productService.postProduct(`product`, this.userId, newProduct)
               .subscribe(
                 item => {
-                  console.log(item);
+                  console.log('item product ',item);
                   this.router.navigate(['/products/product-list']);
                 },
                 error => {
@@ -140,6 +139,7 @@ export class ProductsComponent implements OnInit {
           this.router.navigate(['/error/429']);
         }
         console.log('Error fetching products:', error);
+        this.message = 'Something went wrong';
       })
   }
 
@@ -163,6 +163,7 @@ export class ProductsComponent implements OnInit {
           this.router.navigate(['/error/429']);
         }
         console.log('Error fetching products:', error);
+        this.message = 'Something went wrong';
       })
   }
 
