@@ -25,6 +25,7 @@ export class ListProductsComponent implements OnInit {
   errorMsg='';
   loading = false;
   // value='2222432';
+  mobile!:boolean;
 
 
 
@@ -42,6 +43,9 @@ export class ListProductsComponent implements OnInit {
     // console.log('uid',typeof this.user.id);
     // console.log('session storage', this.userSessionStorage);
     this.getProducts();
+    // if (window.screen.width === 360) { // 768px portrait
+    //   this.mobile = true;
+    // }
   }
 
   getProducts(){
@@ -49,6 +53,7 @@ export class ListProductsComponent implements OnInit {
     this.productService.getAllProducts('product', this.userSessionStorage, this.userId).subscribe((items:  Product[]) =>{
       console.log('items', items)
       console.log('items', items?.length)
+
         if (items?.length === undefined){
           this.message = 'No products';
         }

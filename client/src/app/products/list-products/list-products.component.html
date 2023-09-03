@@ -1,3 +1,4 @@
+<!--suppress ALL-->
 
 <!--<div class="container">-->
 <!--  <div class="grid"  >-->
@@ -93,6 +94,8 @@
 <!--  </div>-->
 <!--</div>-->
 
+<div class="container mt-1 md:mt-2 xl:mt-8">
+
 
 <div class="card">
   <p-table
@@ -100,50 +103,56 @@
     [paginator]="true"
     [rows]="10"
     [showCurrentPageReport]="true"
-    [tableStyle]="{ 'min-width': '50rem' }"
+    [tableStyle]="{ 'min-width': '25rem' }"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [rowsPerPageOptions]="[10, 25, 50]"
   >
     <ng-template pTemplate="header">
       <tr >
-<!--        <th style="width:25%">Name</th>-->
+<!--        <th >Name</th>-->
 <!--        <th style="width:25%">Country</th>-->
 <!--        <th style="width:25%">Company</th>-->
 <!--        <th style="width:25%">Representative</th>-->
-        <th>Code</th>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Quantity</th>
-        <th>Favorite</th>
-        <th>Price</th>
-        <th>Pid</th>
+        <th  >Code</th>
+        <th  >Name</th>
+        <th  >Category</th>
+        <th  >Quantity</th>
+        <th  >Favorite</th>
+        <th  >Price</th>
+        <th  >Pid</th>
         <!--          <th>Uid</th>-->
-        <th>Entry date</th>
-        <th>Storage</th>
+        <th  >Entry date</th>
+        <th >Storage</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-product>
       <tr (click)="goToProductId(product.id)">
+<!--        FIXME vine defalcat nu cod-->
         <td  >
           {{ product.codebar }}
         </td>
-        <td>{{ product.name }}</td>
-        <td>{{ product?.category }}</td>
-        <td>{{ product?.quantity }}</td>
-        <td [ngClass]="product?.favorite ? 'red':'blue'">{{ product?.favorite === 'true' ? '&#11088;' : '&#8854;' }}</td>
-        <td>{{ product?.price}}</td>
-        <td>{{ product?.id }}</td>
+        <td  >{{ product.name }}</td>
+        <td >{{ product?.category }}</td>
+        <td  >{{ product?.quantity }}</td>
+        <td  [ngClass]="product?.favorite ? 'red':'blue'">{{ product?.favorite === 'true' ? '&#11088;' : '&#8854;' }}</td>
+        <td  >{{ product?.price}}</td>
+        <td >{{ product?.id }}</td>
         <!--          <td>{{ product?.uid }}</td>-->
-        <td>{{ product?.created_at | date:'MMM d, y, h:mm:ss a'  }}</td>
-        <td>{{ product?.storage }}</td>
+        <td >{{ product?.created_at | date:'MMM d, y, h:mm:ss a'  }}</td>
+<!--     TODO [ngClass]="mobile ? 'p-hidden' : 'block'"-->
+        <td >{{ product?.storage }}</td>
       </tr>
     </ng-template>
-    <ng-template pTemplate="paginatorleft">
-      <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
-    </ng-template>
-    <ng-template pTemplate="paginatorright">
-      <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
-    </ng-template>
+<!--      FIXME paginator padding-->
+      <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+      </ng-template>
+
+
   </p-table>
 </div>
 
+</div>

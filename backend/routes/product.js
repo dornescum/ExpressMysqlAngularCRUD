@@ -112,7 +112,7 @@ router.get("/:uid",  (req, res) => {
         // res.status(200).send(products);
         sql = `SELECT * FROM products WHERE uid = ?`;
         db.query(sql,[uid], (err, result) => {
-            // console.log('result get product ', result);
+            console.log('result get products for uid', result);
             // console.log('error get product ', err);
             if (err) {
                 console.error(err.message);
