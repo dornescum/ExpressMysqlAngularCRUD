@@ -36,6 +36,7 @@ export class ProductsComponent implements OnInit {
     brands: Brands[] | undefined;
     categories: Categories[] | undefined;
     userSessionStorage!: string;
+    // FIXME price: number but in form is string
     price!: number;
     quantity!: number;
     name!: string;

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DatePipe } from '@angular/common';
+
 
 
 import { ProductsRoutingModule } from './products-routing.module';
@@ -18,6 +20,7 @@ import {ChipModule} from 'primeng/chip';
 
 // Import ngx-barcode module
 import { NgxBarcode6Module } from 'ngx-barcode6';
+import {TableModule} from "primeng/table";
 
 @NgModule({
   declarations: [
@@ -25,19 +28,21 @@ import { NgxBarcode6Module } from 'ngx-barcode6';
     ProductComponent,
     ListProductsComponent
   ],
-  imports: [
-    CommonModule,
-    ProductsRoutingModule,
-    ReactiveFormsModule,
-    ButtonModule,
-    InputTextModule,
-    DropdownModule,
-    InputTextareaModule,
-    FileUploadModule,
-    CardModule,
-    ChipModule,
-    NgxBarcode6Module,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        ProductsRoutingModule,
+        ReactiveFormsModule,
+        ButtonModule,
+        InputTextModule,
+        DropdownModule,
+        InputTextareaModule,
+        FileUploadModule,
+        CardModule,
+        ChipModule,
+        NgxBarcode6Module,
+        FormsModule,
+        TableModule
+    ],
+  providers: [DatePipe]
 })
 export class ProductsModule { }
