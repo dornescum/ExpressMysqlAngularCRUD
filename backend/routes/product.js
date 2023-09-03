@@ -56,26 +56,33 @@ router.post("/:uid", [
     // console.log('products :', products)
     const {favorite, price, name, quantity, brand, category, text, uid, id} = req.body;
     // console.log('fav ', favorite);
-    // console.log('brand ', brand);
-    // console.log('category ', category);
+    console.log('brand ', brand);
+    console.log('category ', category);
     // console.log('uid ', uid);
     // console.log('id ', id);
 
     // FIXME make trigger for update codebar
     const brandNr = getBrandType(brand);
     const categoryNr = getCategoryNr(category);
-    // console.log('category nr ', categoryNr);
-    // Create codebar
-    const codebar = `${favorite ? 1 : 0}${brandNr}${categoryNr}${new Date().toISOString()}${uid}`;
+    console.log('category nr ', categoryNr);
+    console.log('brand nr ', brandNr);
 
-    // console.log('codebar ', codebar);
-    const cleanedCodebar = codebar.replace(/[-:.ZT]/g, '');
-    // console.log('cleanedCodebar', cleanedCodebar);
+    const date = new Date().toISOString(); // "2023-09-03T12:50:12.159Z"
+    const [year, month, day] = date.split('T')[0].split('-');
+    // Create codebar
+    // const codebar = `${favorite ? 1 : 0}${brandNr}${categoryNr}${new Date().toISOString()}${uid}`;
+    const codebar = `${favorite ? 1 : 0}${brandNr}${categoryNr}${year}${day}${month}${uid}`;
+
+    console.log('codebar ', codebar);
+    // const cleanedCodebar = codebar.replace(/[-:.ZT]/g, '');
+    const cleanedCodebar = codebar.replace(/[-:.ZT]/g, '').replace(/-/g, '');
+
+    console.log('cleanedCodebar', cleanedCodebar);
 
     sql = `INSERT INTO products(favorite, price, name, quantity, brand, category, text, uid, codebar) VALUES 
                             (?,?,?,?,?,?,?,?,?)`;
-    db.query(sql, [favorite, price, name, quantity, brand, category, text, uid, cleanedCodebar], (err, result) => {
-        // console.log('result add product ', result);
+    db.query(sql, [favorite, price, name, quantity, brandNr, categoryNr, text, uid, codebar], (err, result) => {
+        console.log('result add product ', result);
         // console.log('error add product ', err);
         if (err) {
             console.error(err.message);
@@ -103,14 +110,18 @@ router.get("/:uid",  (req, res) => {
     const uid = req.params.uid;
     const pid = req.params.pid;
 
-    // console.log('uid  :', uid)
+    console.log('uid  :', uid)
     // console.log('pid  :', pid)
     if (!token) return res.status(401).send("No token provided.");
 
     jwt.verify(token, 'secret', (err, decoded) => {
         if (err) return res.status(403).send("Invalid token.");
         // res.status(200).send(products);
-        sql = `SELECT * FROM products WHERE uid = ?`;
+        // sql = `SELECT * FROM products WHERE uid = ?`;
+        sql = `SELECT * FROM products as p
+                                 inner join brands b on p.brand = b.brand_id
+                                 inner join categories c on p.category = c.category_id
+               WHERE uid = ?`;
         db.query(sql,[uid], (err, result) => {
             console.log('result get products for uid', result);
             // console.log('error get product ', err);
@@ -135,7 +146,7 @@ router.get("/:uid",  (req, res) => {
 router.get("/:uid/:pid",  (req, res) => {
     const token = req.headers['x-access-token'];
     // TODO create middleware for token
-    console.log('TOKEN :', token)
+    // console.log('TOKEN :', token)
 
     const uid = req.params.uid;
     const pid = req.params.pid;
@@ -149,7 +160,7 @@ router.get("/:uid/:pid",  (req, res) => {
         // res.status(200).send(products);
         sql = `SELECT * FROM products WHERE uid = ? AND id = ?`;
         db.query(sql,[uid, pid], (err, result) => {
-            // console.log('result get product ', result);
+            console.log('result get product ', result);
             // console.log('error get product ', err);
             if (err) {
                 console.error(err.message);

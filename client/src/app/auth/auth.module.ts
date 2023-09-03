@@ -10,12 +10,13 @@ import {CheckboxModule} from 'primeng/checkbox';
 import {InputNumberModule} from "primeng/inputnumber";
 import {InputTextModule} from "primeng/inputtext";
 import {ProfileComponent} from './profile/profile.component';
+import {NgxBarcode6Module} from "ngx-barcode6";
 
 
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, ProfileComponent],
-  imports: [CommonModule, AuthRoutingModule, ReactiveFormsModule, PasswordModule, ButtonModule, CheckboxModule, InputNumberModule, InputTextModule]
+    imports: [CommonModule, AuthRoutingModule, ReactiveFormsModule, PasswordModule, ButtonModule, CheckboxModule, InputNumberModule, InputTextModule, NgxBarcode6Module]
 })
 export class AuthModule {
 }

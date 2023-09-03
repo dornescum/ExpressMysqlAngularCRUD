@@ -4,7 +4,7 @@ const rateLimit = require("express-rate-limit");
 
 const productLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // limit each IP to 100 requests per windowMs
+    max: 10, // limit each IP to 100 requests per windowMs
 });
 
 const authRoute = require("./auth");
@@ -16,6 +16,7 @@ const product= require('./product');
 const profile= require('./profile');
 const categories= require('./categories');
 const brands= require('./brands');
+const api= require('./api');
 // const usersRoute = require("./users");
 
 
@@ -29,5 +30,7 @@ router.use("/api/v2/product", productLimiter, product)
 router.use("/api/v1/profile", profile);
 router.use("/api/v2/categories", categories);
 router.use("/api/v2/brands", brands);
+router.use("/api/v1/api", productLimiter, api)
+
 
 module.exports = router;

@@ -47,7 +47,7 @@ export class ProductsComponent implements OnInit {
 
 
 
-    //TODO sa adaug imagine in viitor
+    //TODO sa mut imagine in viitor pe ruta asta
     uploadedFiles: any[] = [];
 
 

@@ -44,4 +44,18 @@ router.post("/:uid",  upload.single('product'), (req, res)=>{
     }
 })
 
+router.get("/:uid", (req, res) => {
+    // const sql = "SELECT * FROM products";
+    const sql = `SELECT * FROM users WHERE id = ?`;
+
+    db.query(sql, (err, results) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).json({ error: "Internal Server Error" });
+        } else {
+            res.json(results);
+        }
+    });
+});
+
 module.exports = router;

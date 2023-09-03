@@ -349,3 +349,5 @@ BEGIN
 END;
 //
 DELIMITER ;
+
+# alter table products favorite => enum ('true', 'false')

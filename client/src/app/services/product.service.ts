@@ -20,9 +20,9 @@ export class ProductService {
   }
 
   updateProduct(url: string, uid:any, payload: any, pid: any) {
-    console.log('update service pid', pid)
-    console.log('update service uid', uid)
-    console.log(`'update service ',${this.baseUrl}${url}/${pid}`, payload);
+    // console.log('update service pid', pid)
+    // console.log('update service uid', uid)
+    // console.log(`'update service ',${this.baseUrl}${url}/${pid}`, payload);
     return this.http.put(`${this.baseUrlV2}${url}/${pid}`, payload);
   }
 
@@ -50,4 +50,10 @@ export class ProductService {
     return this.http.get<Brands[]>(`${this.baseUrlV2}${url}`);
   }
 
+
+  // api products no security but rate limiter
+  getApiProducts(url: string): Observable<Product[]> {
+
+    return this.http.get<Product[]>(`${this.baseUrl}${url}/`);
+  }
 }

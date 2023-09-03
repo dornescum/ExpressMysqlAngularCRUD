@@ -1,1 +1,42 @@
-<p>profile works!</p>
+<!--suppress ALL-->
+
+<div class="container">
+  <div class="grid"  >
+    <div class="col-12">
+      <!--      FIXME-->
+      <div class="text-center p-3 border-round-sm  font-bold">
+        <div class="surface-section">
+          <div class="font-medium text-3xl text-900 mb-3"> Name: {{uid?.age}}</div>
+          <div class="text-500 mb-5">Id: {{uid?.id}} $</div>
+          <ul class="list-none p-0 m-0">
+            <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
+              <div class="text-500 w-6 md:w-2 font-medium">nickname :</div>
+              <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">{{uid?.nickname}}</div>
+            </li>
+            <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
+              <div class="text-500 w-6 md:w-2 font-medium">email :</div>
+              <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">{{uid?.email}}</div>
+            </li>
+            <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
+              <div class="text-500 w-6 md:w-2 font-medium">photo : </div>
+              <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">{{uid?.photoUrl === null ? 'no photo': uid?.photoUrl}}</div>
+
+
+            </li>
+            <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
+              <div class="text-500 w-6 md:w-2 font-medium">created at : </div>
+              <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">{{uid?.created_at}}</div>
+
+            </li>
+
+
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <!--    <h1>{{message}}</h1>-->
+    <!--    <h2>{{errorMsg}}</h2>-->
+  </div>
+</div>

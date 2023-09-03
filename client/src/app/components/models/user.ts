@@ -5,7 +5,10 @@ export interface User {
   age?: number,
   terms?: boolean,
   nickname: string,
-  id?: number
+  username?: string,
+  id?: number,
+  photoUrl?: string
+  created_at?:string
 }
 
 export interface Modules {

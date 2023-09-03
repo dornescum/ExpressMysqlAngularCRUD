@@ -95,64 +95,73 @@
 <!--</div>-->
 
 <div class="container mt-1 md:mt-2 xl:mt-8">
+  <div class="card">
+    <p-table
+      [paginator]="true"
+      [rowsPerPageOptions]="[10, 25, 50]"
+      [rows]="10"
+      [showCurrentPageReport]="true"
+      [tableStyle]="{ 'min-width': '25rem' }"
+      [value]="products"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <!--        <th >Name</th>-->
+          <!--        <th style="width:25%">Country</th>-->
+          <!--        <th style="width:25%">Company</th>-->
+          <!--        <th style="width:25%">Representative</th>-->
+          <th>Code</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Brand</th>
+          <th>Quantity</th>
+          <th>Favorite</th>
+          <th>Price</th>
+          <th>Pid</th>
+          <!--          <th>Uid</th>-->
+          <th>Entry date</th>
+          <th>Storage</th>
+        </tr>
+      </ng-template>
+      <ng-template let-product pTemplate="body">
+        <tr (click)="goToProductId(product.id)">
+          <!--        FIXME vine defalcat nu cod-->
+          <td>
+            <!--          {{ product.codebar }}-->
 
+            <ngx-barcode6
+              [bc-format]="'CODE128'"
+              [bc-height]="30"
+              [bc-value]="product.codebar || ''" [bc-width]="1"
+            >
+            </ngx-barcode6>
+            <!--          [bc-display-value]="true"-->
 
-<div class="card">
-  <p-table
-    [value]="products"
-    [paginator]="true"
-    [rows]="10"
-    [showCurrentPageReport]="true"
-    [tableStyle]="{ 'min-width': '25rem' }"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [rowsPerPageOptions]="[10, 25, 50]"
-  >
-    <ng-template pTemplate="header">
-      <tr >
-<!--        <th >Name</th>-->
-<!--        <th style="width:25%">Country</th>-->
-<!--        <th style="width:25%">Company</th>-->
-<!--        <th style="width:25%">Representative</th>-->
-        <th  >Code</th>
-        <th  >Name</th>
-        <th  >Category</th>
-        <th  >Quantity</th>
-        <th  >Favorite</th>
-        <th  >Price</th>
-        <th  >Pid</th>
-        <!--          <th>Uid</th>-->
-        <th  >Entry date</th>
-        <th >Storage</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-product>
-      <tr (click)="goToProductId(product.id)">
-<!--        FIXME vine defalcat nu cod-->
-        <td  >
-          {{ product.codebar }}
-        </td>
-        <td  >{{ product.name }}</td>
-        <td >{{ product?.category }}</td>
-        <td  >{{ product?.quantity }}</td>
-        <td  [ngClass]="product?.favorite ? 'red':'blue'">{{ product?.favorite === 'true' ? '&#11088;' : '&#8854;' }}</td>
-        <td  >{{ product?.price}}</td>
-        <td >{{ product?.id }}</td>
-        <!--          <td>{{ product?.uid }}</td>-->
-        <td >{{ product?.created_at | date:'MMM d, y, h:mm:ss a'  }}</td>
-<!--     TODO [ngClass]="mobile ? 'p-hidden' : 'block'"-->
-        <td >{{ product?.storage }}</td>
-      </tr>
-    </ng-template>
-<!--      FIXME paginator padding-->
+          </td>
+          <td>{{ product.name }}</td>
+          <td>{{ product?.category_name }}</td>
+          <td>{{ product?.brand_name }}</td>
+          <td>{{ product?.quantity }}</td>
+          <td [ngClass]="product?.favorite ? 'red':'blue'">{{ product?.favorite === 'true' ? '&#11088;' : '&#8854;' }}</td>
+          <td>{{ product?.price}}</td>
+          <td>{{ product?.id }}</td>
+          <!--          <td>{{ product?.uid }}</td>-->
+          <td>{{ product?.created_at | date:'MMM d, y, h:mm:ss a'  }}</td>
+          <!--     TODO [ngClass]="mobile ? 'p-hidden' : 'block'"-->
+          <td>{{ product?.storage }}</td>
+        </tr>
+      </ng-template>
+      <!--      FIXME paginator padding-->
       <ng-template pTemplate="paginatorleft">
-        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-plus" styleClass="p-button-text" type="button"></p-button>
       </ng-template>
       <ng-template pTemplate="paginatorright">
-        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-cloud" styleClass="p-button-text" type="button"></p-button>
       </ng-template>
 
 
-  </p-table>
-</div>
+    </p-table>
+  </div>
 
 </div>
