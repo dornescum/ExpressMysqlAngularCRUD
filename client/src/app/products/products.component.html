@@ -2,6 +2,12 @@
 <div class="flex justify-content-center  align-items-center my-0 xl:my-2">
   <h1>{{message}}</h1>
 </div>
+<!--<div class="card flex justify-content-center relative">-->
+<!--  <label for="">Seacrh</label>-->
+<!--  <input type="text" pInputText [(ngModel)]="searchValue" class="absolute top-0"/>-->
+<!--</div>-->
+
+
 <div class="flex justify-content-center  align-items-center mt-0 md:mt-2 xl:mt-0"  [ngClass]="message === ''? '':'hide'">
   <form (ngSubmit)="onSubmit()" [formGroup]="form" class="bg-gray-100 border-round-md p-4 md:p-2 xl:p-4 xl:pb-4">
     <div class="flex flex-column lg:flex-row">

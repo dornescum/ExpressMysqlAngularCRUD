@@ -26,6 +26,7 @@ export class ListProductsComponent implements OnInit {
   loading = false;
   // value='2222432';
   mobile!:boolean;
+  searchValue!: string;
 
 
 
@@ -46,6 +47,7 @@ export class ListProductsComponent implements OnInit {
     // if (window.screen.width === 360) { // 768px portrait
     //   this.mobile = true;
     // }
+
   }
 
   getProducts(){
@@ -81,6 +83,20 @@ export class ListProductsComponent implements OnInit {
     //   console.log('item : ', item)
     // })
     this.router.navigate(['products/product/', id])
+  }
+  getSearchValue (){
+    console.log('search ', this.searchValue)
+    this.productService.getSearch('search', this.userSessionStorage, this.userId, this.searchValue)
+      .subscribe(
+        items => {
+          console.log('item product ',items);
+          // this.router.navigate(['/products/product-list']);
+        },
+        error => {
+          console.log('Error:', error);
+          this.message = 'Something went wrong';
+        }
+      );
   }
 
 }

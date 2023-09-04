@@ -268,23 +268,23 @@ create table `ionic-app`
 );
 
 # 27.08
-CREATE TABLE products
-(
-    id         INT AUTO_INCREMENT PRIMARY KEY,
-    favorite   BOOLEAN,
-    price      DECIMAL(10, 2),
-    name       VARCHAR(255),
-    quantity   INT,
-    brand      VARCHAR(255),
-    category   VARCHAR(255),
-    text       TEXT,
-    uid        INT,
-    storage    INT         default 1,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    codebar    VARCHAR(512),
-    FOREIGN KEY(uid) REFERENCES users(id)
-);
+# CREATE TABLE products
+# (
+#     id         INT AUTO_INCREMENT PRIMARY KEY,
+#     favorite   BOOLEAN,
+#     price      DECIMAL(10, 2),
+#     name       VARCHAR(255),
+#     quantity   INT,
+#     brand      VARCHAR(255),
+#     category   VARCHAR(255),
+#     text       TEXT,
+#     uid        INT,
+#     storage    INT         default 1,
+#     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+#     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+#     codebar    VARCHAR(512),
+#     FOREIGN KEY(uid) REFERENCES users(id)
+# );
 
 # DELIMITER //
 # CREATE TRIGGER generate_codebar
@@ -351,3 +351,24 @@ END;
 DELIMITER ;
 
 # alter table products favorite => enum ('true', 'false')
+drop table products;
+# 09.08 error favorite => enum ('true', 'false') windows work
+create table products
+(
+    id         int auto_increment
+        primary key,
+    favorite   enum ('true', 'false')                null,
+    price      decimal(10, 2)                        null,
+    name       varchar(255)                          null,
+    quantity   int                                   null,
+    brand      varchar(255)                          null,
+    category   varchar(255)                          null,
+    text       text                                  null,
+    uid        int                                   null,
+    storage    int       default 1                   null,
+    created_at timestamp default current_timestamp() not null,
+    updated_at timestamp default current_timestamp() not null on update current_timestamp(),
+    codebar    varchar(512)                          null,
+    constraint products_ibfk_1
+        foreign key (uid) references users (id)
+)

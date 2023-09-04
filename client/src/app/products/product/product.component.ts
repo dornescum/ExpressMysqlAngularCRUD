@@ -31,7 +31,9 @@ export class ProductComponent implements OnInit{
   category!: string;
   codebar!: string;
   text!: string;
-message = '';
+  message = '';
+  // value!: string;
+
 
   constructor(private router: Router, private authService: AuthService,
               private token: TokenService,
@@ -101,6 +103,23 @@ message = '';
     }
 
     this.productService.updateProduct(`product`, this.userId, updatedProduct, this.pid)
+      .subscribe(
+        item => {
+          console.log('item product ',item);
+          this.router.navigate(['/products/product-list']);
+        },
+        error => {
+          console.log('Error:', error);
+          this.message = 'Something went wrong';
+        }
+      );
+  }
+
+  delteProduct(id: any){
+    console.log('id', id)
+    console.log('pid', this.pid)
+    console.log('type of id ', typeof id)
+    this.productService.deleteProduct('product', this.userId, this.pid)
       .subscribe(
         item => {
           console.log('item product ',item);

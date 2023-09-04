@@ -3,6 +3,8 @@ import {MenuItem} from "primeng/api";
 import {TokenService} from '../../../services/token.service';
 import {AuthService} from '../../../services/auth.service';
 import {Router} from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-header',
@@ -15,7 +17,7 @@ export class HeaderComponent implements OnInit{
   user!: {};
   userSessionStorage: any;
 
-  constructor( private token: TokenService, private authService: AuthService,private router: Router) {
+  constructor( private token: TokenService, private authService: AuthService,private router: Router, private cdr: ChangeDetectorRef) {
   }
 
   @HostListener('window:resize', ['$event'])
@@ -32,6 +34,7 @@ export class HeaderComponent implements OnInit{
       this.router.navigate(['auth/login']);
       // window.location.reload();
     }
+    this.cdr.detectChanges();
     if(!this.userSessionStorage){
       this.items= []
     } else {

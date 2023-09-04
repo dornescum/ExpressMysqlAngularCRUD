@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../enviroments/enviroment";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from '@angular/common/http';
 // import {Product} from "../components/models/user";
 import {Observable} from "rxjs";
 import {Brands, Categories, Product} from "../components/models/products";
@@ -53,7 +53,24 @@ export class ProductService {
 
   // api products no security but rate limiter
   getApiProducts(url: string): Observable<Product[]> {
-
     return this.http.get<Product[]>(`${this.baseUrl}${url}/`);
+  }
+
+  deleteProduct(url: string, uid:any, pid: any) {
+    // console.log('update service pid', pid)
+    // console.log('update service uid', uid)
+    // console.log(`'update service ',${this.baseUrl}${url}/${pid}`, payload);
+    return this.http.delete(`${this.baseUrlV2}${url}/${uid}/${pid}`);
+  }
+
+  getSearch(url: string, token: string, uid: any, payload: any): Observable<Product[]> {
+    console.log('u', url);
+    console.log('t', token);
+    console.log('id', uid);
+    console.log('p', payload);
+    const headers = { 'X-Access-Token': token };
+    const params = new HttpParams({ fromObject: payload });
+    console.log('params: ', params.toString());
+    return this.http.get<Product[]>(`${this.baseUrlV2}${url}/${uid}`, { headers, params });
   }
 }

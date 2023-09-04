@@ -44,6 +44,7 @@ export class ProductsComponent implements OnInit {
     private baseUrlV2 = environment.apiUrlV2;
     uid!: User | null;
     message= '';
+  // searchValue!: string;
 
 
 

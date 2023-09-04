@@ -21,6 +21,7 @@ import {ChipModule} from 'primeng/chip';
 // Import ngx-barcode module
 import { NgxBarcode6Module } from 'ngx-barcode6';
 import {TableModule} from "primeng/table";
+import {ImageModule} from 'primeng/image';
 
 @NgModule({
   declarations: [
@@ -28,21 +29,22 @@ import {TableModule} from "primeng/table";
     ProductComponent,
     ListProductsComponent
   ],
-    imports: [
-        CommonModule,
-        ProductsRoutingModule,
-        ReactiveFormsModule,
-        ButtonModule,
-        InputTextModule,
-        DropdownModule,
-        InputTextareaModule,
-        FileUploadModule,
-        CardModule,
-        ChipModule,
-        NgxBarcode6Module,
-        FormsModule,
-        TableModule
-    ],
+	imports: [
+		CommonModule,
+		ProductsRoutingModule,
+		ReactiveFormsModule,
+		ButtonModule,
+		InputTextModule,
+		DropdownModule,
+		InputTextareaModule,
+		FileUploadModule,
+		CardModule,
+		ChipModule,
+		NgxBarcode6Module,
+		FormsModule,
+		TableModule,
+		ImageModule
+	],
   providers: [DatePipe]
 })
 export class ProductsModule { }
