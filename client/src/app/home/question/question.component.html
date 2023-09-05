@@ -6,7 +6,6 @@
         <li  *ngFor="let q of questionResponses; let i = index">
                 <p (click)="result(i)"  [ngClass]="q.is_correct == 1 ? 'test':'blue' ">{{q.choices}}</p>
         </li>
-<!--  <button (click)="nextQuestion($event)">next question</button>-->
 </ul>
 <p>{{message}}</p>
 

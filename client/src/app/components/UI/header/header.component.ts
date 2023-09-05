@@ -1,7 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {MenuItem} from "primeng/api";
 import {TokenService} from '../../../services/token.service';
-import {AuthService} from '../../../services/auth.service';
 import {Router} from '@angular/router';
 import { ChangeDetectorRef } from '@angular/core';
 
@@ -17,7 +16,7 @@ export class HeaderComponent implements OnInit{
   user!: {};
   userSessionStorage: any;
 
-  constructor( private token: TokenService, private authService: AuthService,private router: Router, private cdr: ChangeDetectorRef) {
+  constructor( private token: TokenService, private router: Router, private cdr: ChangeDetectorRef) {
   }
 
   @HostListener('window:resize', ['$event'])
@@ -26,7 +25,7 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.onResize(null); // Initialize isMobileView on component load
+    this.onResize(null);
 
 
     this.userSessionStorage = this.token.getToken();
@@ -44,11 +43,6 @@ export class HeaderComponent implements OnInit{
           icon: 'pi pi-user',
           routerLink: '/auth/profile'
         },
-        // {
-        //   label: 'Quizzes',
-        //   icon: 'pi pi-user',
-        //   routerLink: '/quiz'
-        // },
         {
           label: 'Api',
           icon: 'pi pi-user',
@@ -67,7 +61,7 @@ export class HeaderComponent implements OnInit{
         {
           label: 'Img',
           icon: 'pi pi-user',
-          routerLink: '/img-testing'
+          routerLink: '/img-testing?' // disabled !!!
         },
         {
           label: 'Logout',

@@ -1,6 +1,4 @@
 <!--suppress ALL-->
-
-
 <div class="container">
   <div class="grid mt-2 lg:mt-8">
     <div class="col-12">
@@ -9,26 +7,11 @@
           <label for="formFile" class="form-label mr-4">Upload Img</label>
           <input type="file" class="form-control my-btn" id="formFile"   formControlName="img"  (change) = "imageUpload($event)" >
         </div>
-
         <div>
-<!--          <button type="submit"  class="btn btn-primary">Submit</button>-->
           <button pButton type="submit" icon="pi pi-check"
                   class="p-button-secondary" >Submit</button>
         </div>
-
-
       </form>
     </div>
   </div>
-
-
 </div>
-
-
-<!--<p-fileUpload mode="basic" chooseLabel="Choose" name="img"  accept="image/*" style="background: red"-->
-<!--              class="form-control" id="formFile"  formControlName="img" url="https://www.primefaces.org/cdn/api/upload.php"-->
-<!--              maxFileSize="1000000" (onUpload)="imageUpload($event)"></p-fileUpload>-->
-
-
-<!--<p-fileUpload mode="basic" chooseLabel="Choose" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*" maxFileSize="1000000"-->
-<!--              (change)="imageUpload($event)"></p-fileUpload>-->

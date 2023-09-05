@@ -63,14 +63,22 @@ export class ProductService {
     return this.http.delete(`${this.baseUrlV2}${url}/${uid}/${pid}`);
   }
 
-  getSearch(url: string, token: string, uid: any, payload: any): Observable<Product[]> {
-    console.log('u', url);
-    console.log('t', token);
-    console.log('id', uid);
-    console.log('p', payload);
+  // getSearch(url: string, token: string, uid: any, payload: any): Observable<Product[]> {
+  //   console.log('u', url);
+  //   console.log('t', token);
+  //   console.log('id', uid);
+  //   console.log('p', payload);
+  //   const headers = { 'X-Access-Token': token };
+  //   const params = new HttpParams({ fromObject: payload });
+  //   console.log('params: ', params.toString());
+  //   return this.http.get<Product[]>(`${this.baseUrlV2}${url}/${uid}`, { headers, params });
+  // }
+
+
+  getSearch(url: string, token: string, uid: any, payload: any){
+    const params = new HttpParams().set('q', payload);
     const headers = { 'X-Access-Token': token };
-    const params = new HttpParams({ fromObject: payload });
-    console.log('params: ', params.toString());
-    return this.http.get<Product[]>(`${this.baseUrlV2}${url}/${uid}`, { headers, params });
+    return  this.http.get<Product[]>(`${this.baseUrlV2}${url}/${uid}`, { headers, params })
   }
+
 }

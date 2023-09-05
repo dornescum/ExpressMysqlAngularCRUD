@@ -1,15 +1,4 @@
-/* Add your responsive styles here */
-//.p-menubar-mobile {
-//  display: flex;
-//  flex-direction: column;
-//
-//  .p-menuitem {
-//    width: 100%;
-//    text-align: center;
-//    margin-bottom: 8px;
-//  }
-//}
-/* Default styles for header */
+
 .app-header {
   display: flex;
   justify-content: space-between;
@@ -18,7 +7,7 @@
   padding: 10px 20px;
 }
 
-/* Styles for mobile screens */
+
 @media (max-width: 600px) {
   .app-header {
     flex-direction: column;

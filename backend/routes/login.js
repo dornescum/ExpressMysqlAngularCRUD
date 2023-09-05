@@ -6,6 +6,7 @@ const db = require("../db/config.js");
 // const util = require('util');
 // const dbQuery = util.promisify(db.query);
 const router = express.Router();
+const secret = process.env.SECRET;
 
 const app = express();
 
@@ -30,8 +31,7 @@ router.post("/", [
     const hashedPassword = md5(password.toString());
 
     db.query("SELECT * FROM users WHERE email = ? AND password = ?", [email, hashedPassword], (err, result) => {
-        console.log('result login service', result)
-        // console.log('err login service', err)
+
         if (err) {
             res.send({
                 data: err, message: "Something went wrong, please try again", statusCode: 400,
@@ -45,18 +45,7 @@ router.post("/", [
         }
 
         if (result.length > 0) {
-            // console.log('result from login : ', result)
             const {id, email} = result[0];
-            // console.log('login', result)
-            // console.log('login', result[0].email)
-
-            // =====================
-            // const newObjSecurity = {id, email}
-            // const token = jwt.sign({data: result}, "secret");
-            // // console.log('token auth controller: ', token);
-            // //
-            // // console.log('newObjSecurity:', newObjSecurity);
-            // // console.log('token:', token);
             // // FIXME for linux
             // /*no httpOnly: true because there were problems in fronted */
             // res.cookie('jwtToken', token, {  path: '/', domain: 'localhost', secure: false, maxAge: 3600000 })
@@ -68,8 +57,8 @@ router.post("/", [
             // ====================
 
             try {
-                const token = jwt.sign({ data: result }, "secret");
-                // Set the cookie and headers
+                const token = jwt.sign({ data: result }, secret);
+
                 res.cookie('jwtToken', token, { path: '/', domain: 'localhost', secure: false, maxAge: 3600000 })
                     .header("X-Access-Token", token);
                 res.send({
@@ -85,11 +74,3 @@ router.post("/", [
 });
 
 module.exports = router;
-// for products
-// try {
-//     const decodedToken = jwt.verify(token, 'secret');
-//     // Handle the decoded token
-// } catch (error) {
-//     console.error('Token verification error:', error.message);
-//     // Handle the error
-// }

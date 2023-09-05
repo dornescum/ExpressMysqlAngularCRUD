@@ -1,6 +1,6 @@
 <!--suppress ALL-->
 
-<h1>{{message}}</h1>
+<h1 class="flex justify-content-center align-content-center">{{message}}</h1>
 <h2>{{errorMsg}}</h2>
 
 
@@ -11,6 +11,11 @@
     <div class="flex">
       <input type="text" style="padding: 10px 10px; border-radius: 7px; width: 15rem; margin-right: 5px" [(ngModel)]="searchValue" name="searchValue" id="search">
       <button type="submit" style="padding: 10px 10px; border-radius: 7px; margin-left: 5px; cursor: pointer" (click)="getSearchValue()">Go</button>
+      <button type="submit"
+              style="padding: 10px 10px; border-radius: 7px; margin-left: 5px; cursor: pointer" (click)="getProducts()"
+
+       [ngClass]="searchValue === '' ? 'hide' : 'show'">Reset</button>
+
     </div>
   </div>
 </div>
@@ -30,10 +35,6 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <!--        <th >Name</th>-->
-          <!--        <th style="width:25%">Country</th>-->
-          <!--        <th style="width:25%">Company</th>-->
-          <!--        <th style="width:25%">Representative</th>-->
           <th>Code</th>
           <th>Name</th>
           <th>Category</th>
@@ -42,7 +43,6 @@
           <th>Favorite</th>
           <th>Price</th>
           <th>Pid</th>
-          <!--          <th>Uid</th>-->
           <th>Entry date</th>
           <th>Storage</th>
         </tr>
@@ -51,16 +51,12 @@
         <tr (click)="goToProductId(product.id)">
           <!--        FIXME vine defalcat nu cod-->
           <td>
-            <!--          {{ product.codebar }}-->
-
             <ngx-barcode6
               [bc-format]="'CODE128'"
               [bc-height]="30"
               [bc-value]="product.codebar || ''" [bc-width]="1"
             >
             </ngx-barcode6>
-            <!--          [bc-display-value]="true"-->
-
           </td>
           <td>{{ product.name }}</td>
           <td>{{ product?.category_name }}</td>
@@ -69,7 +65,6 @@
           <td [ngClass]="product?.favorite ? 'red':'blue'">{{ product?.favorite === 'true' ? '&#11088;' : '&#8854;' }}</td>
           <td>{{ product?.price}}</td>
           <td>{{ product?.id }}</td>
-          <!--          <td>{{ product?.uid }}</td>-->
           <td>{{ product?.created_at | date:'MMM d, y, h:mm:ss a'  }}</td>
           <!--     TODO [ngClass]="mobile ? 'p-hidden' : 'block'"-->
           <td>{{ product?.storage }}</td>
@@ -82,8 +77,6 @@
       <ng-template pTemplate="paginatorright">
         <p-button icon="pi pi-cloud" styleClass="p-button-text" type="button"></p-button>
       </ng-template>
-
-
     </p-table>
   </div>
 

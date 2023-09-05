@@ -1,12 +1,7 @@
 <!--suppress ALL-->
 <div class="flex justify-content-center align-items-center h-screen ">
   <form [formGroup]="formGroup" class="flex flex-column w-24rem">
-
-
-
     <label for="password" class="flex justify-content-center mb-6">Register</label>
-
-
     <p-password formControlName="email" [feedback]="false" class="my-2"
                 [style]="{'width':'100%'}"
                 [inputStyle]="{'width':'100%'}"
@@ -16,8 +11,6 @@
     <div *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched">
       <small class="text-danger">Please enter a valid email address.</small>
     </div>
-
-
     <p-password formControlName="password" [feedback]="false" class="my-2 "
                 [style]="{'width':'100%'}"
                 [inputStyle]="{'width':'100%'}"
@@ -27,7 +20,6 @@
     <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
       <small class="text-danger">Password is required and must be at least 6 characters long.</small>
     </div>
-
     <p-password formControlName="confirmPassword" [feedback]="false" class="my-2 "
                 [style]="{'width':'100%'}"
                 [inputStyle]="{'width':'100%'}"
@@ -37,24 +29,15 @@
     <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
       <small class="text-danger">Password is required and must be at least 6 characters long.</small>
     </div>
-
-
     <p-inputNumber inputId="integeronly" formControlName="age"  [style]="{'width':'100%'}"  placeholder="Age"></p-inputNumber>
-
     <input type="text" pInputText formControlName="nickname" class="my-2" placeholder="Nickname"/>
-
-
     <div class="flex justify-content-start sm:mt-2 lg:mt-4">
       <p-checkbox formControlName="terms" value="New York" inputId="ny" class="pr-2"></p-checkbox>
       <label for="ny">Agree with terms</label>
     </div>
-
     <p-button label="Submit"  [disabled]="!formGroup.valid"
               [ngStyle]="{ 'width': '100%' }" styleClass="p-button-raised surface-900 my-4"
               (click)="onSubmit()"></p-button>
-
-
     <p class="text-4xl">{{error}}</p>
   </form>
-
 </div>

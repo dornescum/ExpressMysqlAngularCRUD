@@ -10,16 +10,6 @@ import {ProductService} from "../services/product.service";
 import {Categories, Product, Brands} from "../components/models/products";
 
 
-// interface Brands {
-//     name: string;
-//     id: number;
-// }
-
-// interface Categories {
-//     name: string;
-//     id: number;
-// }
-
 interface Favorite {
     favorite: string;
     id: number
@@ -44,8 +34,6 @@ export class ProductsComponent implements OnInit {
     private baseUrlV2 = environment.apiUrlV2;
     uid!: User | null;
     message= '';
-  // searchValue!: string;
-
 
 
     //TODO sa mut imagine in viitor pe ruta asta
@@ -82,19 +70,7 @@ export class ProductsComponent implements OnInit {
     }
 
     onSubmit() {
-      console.log('click')
-      console.log('fav ',this.form.value.favorite?.favorite);
-
-      console.log('Form Validity:', this.form.valid);
-      console.log('Form Errors:', this.form.errors);
-      console.log('Favorite Control Errors:', this.form.get('favorite')?.errors);
-
       if (this.form.valid) {
-            console.log('IF ', this.form.value);
-          console.log(this.form.value.favorite);
-          // console.log(this.form.get('favorite').value);
-          console.log(this.form.valid);
-
           const newProduct: Product = {
             favorite: this.favorite = this.form.value.favorite.favorite,
             price: this.price = this.form.value.price,
@@ -109,11 +85,9 @@ export class ProductsComponent implements OnInit {
             this.productService.postProduct(`product`, this.userId, newProduct)
               .subscribe(
                 item => {
-                  console.log('item product ',item);
                   this.router.navigate(['/products/product-list']);
                 },
                 error => {
-                  console.log('Error:', error);
                   this.message = 'Something went wrong';
                 }
               );
@@ -123,48 +97,25 @@ export class ProductsComponent implements OnInit {
 
   getCategories(){
     this.productService.getCategories('categories').subscribe((category: Categories[]) =>{
-        console.log('cat ', category)
-
       this.categories = category;
-        // if (items?.length === undefined){
-        //   this.message = 'No products';
-        // }
-
-        // this.products = items;
-        // if (this.products.length <1){
-        //   this.message = 'No products';
-        // }
       },
       (error) => {
         if (error.status === 429) {
-          // Redirect to a different page, maybe a rate limit warning page.
           this.router.navigate(['/error/429']);
         }
-        console.log('Error fetching products:', error);
         this.message = 'Something went wrong';
       })
   }
 
   getBrands(){
     this.productService.getBrands('brands').subscribe((items: Brands[]) =>{
-        console.log('brands ', items)
-
         this.brands = items;
-        // if (items?.length === undefined){
-        //   this.message = 'No products';
-        // }
-
-        // this.products = items;
-        // if (this.products.length <1){
-        //   this.message = 'No products';
-        // }
       },
       (error) => {
         if (error.status === 404) {
-          // Redirect to a different page, maybe a rate limit warning page.
+          // TODO make 404 page
           this.router.navigate(['/error/429']);
         }
-        console.log('Error fetching products:', error);
         this.message = 'Something went wrong';
       })
   }

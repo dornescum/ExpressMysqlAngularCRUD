@@ -27,5 +27,5 @@ export interface Product {
   category_name?: string;
   text: string;
   name: string;
-  codebar?: string
+  codebar?: string;
 }

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { DatePipe } from '@angular/common';
 
 
-
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 import { ProductComponent } from './product/product.component';
@@ -18,16 +17,17 @@ import {CardModule} from "primeng/card";
 import {ChipModule} from 'primeng/chip';
 
 
-// Import ngx-barcode module
 import { NgxBarcode6Module } from 'ngx-barcode6';
 import {TableModule} from "primeng/table";
 import {ImageModule} from 'primeng/image';
+import { SearchProductsComponent } from './search-products/search-products.component';
 
 @NgModule({
   declarations: [
     ProductsComponent,
     ProductComponent,
-    ListProductsComponent
+    ListProductsComponent,
+    SearchProductsComponent
   ],
 	imports: [
 		CommonModule,

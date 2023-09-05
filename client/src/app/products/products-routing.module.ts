@@ -6,10 +6,12 @@ import {AuthGuardService} from '../services/auth-guard.service';
 import {AuthCookieGuard} from "../services/auth-cookie.guard";
 import {ListProductsComponent} from './list-products/list-products.component';
 import {PageNotFoundComponent} from '../page-not-found/page-not-found.component';
+import {SearchProductsComponent} from './search-products/search-products.component';
 
 const routes: Routes = [
   {path: '', component: ProductsComponent, canActivate: [AuthGuardService]},
   {path: 'product-list', component: ListProductsComponent, canActivate: [AuthCookieGuard]},
+  {path: 'search-products', component: SearchProductsComponent, canActivate: [AuthCookieGuard]},
   {path: 'product/:id', component: ProductComponent, canActivate: [AuthGuardService]},
   { path: '**', component: PageNotFoundComponent },
 ];

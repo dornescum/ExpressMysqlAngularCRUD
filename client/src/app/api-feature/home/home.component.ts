@@ -28,21 +28,14 @@ export class HomeComponent implements OnInit{
   getProductsNoSecurity(){
     this.loading = true;
     this.productService.getApiProducts('api',).subscribe((items:  Product[]) =>{
-        console.log('items', items)
-        console.log('items', items?.length)
-
         if (items?.length === undefined){
           this.message = 'No products';
         }
         this.loading = false;
         this.products = items;
-        // if (this.products.length <1){
-        //   this.message = 'No products';
-        // }
       },
       (error) => {
         if (error.status === 429) {
-          // Redirect to a different page, maybe a rate limit warning page.
           this.router.navigate(['/error/429']);
         }
         console.log('Error fetching products:', error);

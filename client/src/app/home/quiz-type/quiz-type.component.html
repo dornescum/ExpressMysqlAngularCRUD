@@ -1,10 +1,8 @@
-<p>quiz-type works!</p>
 
 <ul>
     <li *ngFor="let q of questions; let first = first" style="list-style-type: none">
         <div [ngClass]="first ? 'test' : 'hidden_test'" class="test" (click)="startQuiz(first)">
             {{q.question}}
         </div>
-
     </li>
 </ul>

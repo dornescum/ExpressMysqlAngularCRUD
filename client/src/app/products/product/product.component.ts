@@ -1,12 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
 import {User} from '../../components/models/user';
 import {Product} from "../../components/models/products";
-import {environment} from '../../../enviroments/enviroment';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
 import {TokenService} from '../../services/token.service';
-import {ApiService} from '../../services/api.service';
 import {ProductService} from '../../services/product.service';
 
 @Component({
@@ -17,11 +14,9 @@ import {ProductService} from '../../services/product.service';
 export class ProductComponent implements OnInit{
   user!: User;
   userId!: number | undefined;
-  // productId!: any;
   product!: Product | undefined;
   userSessionStorage!: string;
   pid!: string;
-  // product: Product;
   isEditable = false;
   name!: string;
   price!: number;
@@ -32,7 +27,6 @@ export class ProductComponent implements OnInit{
   codebar!: string;
   text!: string;
   message = '';
-  // value!: string;
 
 
   constructor(private router: Router, private authService: AuthService,
@@ -45,26 +39,9 @@ export class ProductComponent implements OnInit{
     this.user = this.token.getUser();
     this.userId = this.user.id;
     this.userSessionStorage = this.token.getToken() as string;
-    console.log('user', this.user);
-    console.log('uid',typeof this.user.id);
-    console.log('session storage', this.userSessionStorage);
-
     this.route.paramMap.subscribe(params => {
-      // console.log('params ', params)
       this.pid = params?.get('id') as string;
-      // this.moduleId = moduleId;
-      // this.questionId = params.get('qid') as string;
-      // Retrieve state data
-      // const stateData = history.state;
-      console.log('pid ', this.pid)
-      // console.log('pid ', stateData)
-
-      // console.log('Module ID:', typeof moduleId);
-      // console.log('Question ID:', this.questionId);
-      // console.log('State Data:', stateData);
     });
-
-
     this.getProduct();
   }
 
@@ -83,13 +60,11 @@ export class ProductComponent implements OnInit{
     })
   }
 
-  toggleEdit() {
-    this.isEditable = !this.isEditable;
-  }
+  // toggleEdit() {
+  //   this.isEditable = !this.isEditable;
+  // }
 
   updateProduct(){
-    console.log('name', this.name)
-
     const updatedProduct: Product = {
       favorite: this.favorite ,
       price: this.price ,
@@ -115,10 +90,8 @@ export class ProductComponent implements OnInit{
       );
   }
 
-  delteProduct(id: any){
-    console.log('id', id)
-    console.log('pid', this.pid)
-    console.log('type of id ', typeof id)
+  deleteProduct(id: any){
+
     this.productService.deleteProduct('product', this.userId, this.pid)
       .subscribe(
         item => {

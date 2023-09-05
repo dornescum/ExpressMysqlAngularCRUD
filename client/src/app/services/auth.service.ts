@@ -19,31 +19,21 @@ export class AuthService {
   }
 
   getUser() {
-    // console.log(this.userSubject);
-    // console.log(this.userSubject.value);
     return this.userSubject.value;
   }
 
-  login(credentials: any): Observable<any> {
+  login(credentials: {email: string; password: string}): Observable<any> {
     console.log('auth service login', credentials,  { withCredentials: true })
     return this.api
-      // .postTypeRequest('auth/login', {
       .postTypeRequest('login-user', {
         email: credentials.email,
         password: credentials.password,
       }, { withCredentials: true })
       .pipe(
         map((res: any) => {
-          console.log('login map ', res)
-          console.log('typeof res.token : ',typeof res.token)
           const headers = new HttpHeaders()
             .set('Authorization', `Bearer ${res.token}`)
             .set('X-Access-Token',`${res.token}`);
-          //
-          // const headers = new HttpHeaders({
-          //   'Authorization': `Bearer ${res.token}`,
-          //   'X-Access-Token': `${res.token}`
-          // });
           const user = {
             email: credentials.email,
             token: res.token,
@@ -51,11 +41,6 @@ export class AuthService {
           };
           this.token.setToken(res.token);
           this.token.setUser(res.data[0]);
-          // if (this.token) {
-          //   const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
-          //   // return this.http.get('/api/protected', { headers });
-          // }
-          // console.log('FROM login auth', res);
           this.userSubject.next(user);
           return user;
         })
@@ -63,8 +48,6 @@ export class AuthService {
   }
 
   register(user: User): Observable<any> {
-    // console.log('user from register auth service', user);
-    // console.log('user role', user);
     return this.api.postTypeRequest('register', {
       email: user.email,
       password: user.password,
@@ -78,16 +61,4 @@ export class AuthService {
     this.router.navigate(['/login']);
     this.userSubject.next(null);
   }
-
-  // login(credentials: { email: string, password: string }) {
-  //   return this.http.post('/api/login', credentials);
-  // }
-
-  // getProtectedData() {
-  //   const token = localStorage.getItem('token'); // Retrieve token from storage
-  //   if (token) {
-  //     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  //     return this.http.get('/api/protected', { headers });
-  //   }
-  // }
 }

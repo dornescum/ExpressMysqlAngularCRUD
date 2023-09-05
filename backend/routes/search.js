@@ -20,16 +20,12 @@ const router = express.Router();
 router.get("/:uid",  (req, res) => {
     const token = req.headers['x-access-token'];
     console.log('TOKEN :', token)
-
-
-
     const uid = req.params.uid;
-    const pid = req.params.pid;
-    const Q = req.query.q;  // changed from req.params.q to req.query.name
+    const Q = req.query.q;
 
 
     console.log('uid  :', uid)
-    console.log('pid  :', pid)
+    // console.log('pid  :', pid)
     console.log('Q  :', Q)
     console.log('req   :', req.body)
     if (!token) return res.status(401).send("No token provided.");
@@ -38,9 +34,10 @@ router.get("/:uid",  (req, res) => {
         if (err) return res.status(403).send("Invalid token.");
         // res.status(200).send(products);
         // sql = `SELECT * FROM products WHERE uid = ?`;
+        // products.name = ? OR
         sql = `SELECT * FROM products
-               WHERE products.name = ?`;
-        db.query(sql,[Q], (err, result) => {
+               WHERE  products.name LIKE  ? AND uid = ?`;
+        db.query(sql,[Q + '%', uid], (err, result) => {
             console.log('result get products for uid', result);
             // console.log('error get product ', err);
             if (err) {

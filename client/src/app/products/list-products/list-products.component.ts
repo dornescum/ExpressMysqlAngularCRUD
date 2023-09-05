@@ -1,13 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {TokenService} from "../../services/token.service";
-import {ApiService} from "../../services/api.service";
 import {User} from "../../components/models/user";
 import {Product} from "../../components/models/products";
 import {ProductService} from "../../services/product.service";
-import {Subscription} from "rxjs";
+
 
 
 @Component({
@@ -24,7 +22,6 @@ export class ListProductsComponent implements OnInit {
   message:string = '';
   errorMsg='';
   loading = false;
-  // value='2222432';
   mobile!:boolean;
   searchValue!: string;
 
@@ -39,15 +36,7 @@ export class ListProductsComponent implements OnInit {
     this.user = this.token.getUser();
     this.userId = this.user.id;
     this.userSessionStorage = this.token.getToken() as string;
-    //
-    // console.log('user', this.user);
-    // console.log('uid',typeof this.user.id);
-    // console.log('session storage', this.userSessionStorage);
     this.getProducts();
-    // if (window.screen.width === 360) { // 768px portrait
-    //   this.mobile = true;
-    // }
-
   }
 
   getProducts(){
@@ -61,13 +50,10 @@ export class ListProductsComponent implements OnInit {
         }
       this.loading = false;
       this.products = items;
-      // if (this.products.length <1){
-      //   this.message = 'No products';
-      // }
+        this.searchValue = '';
     },
       (error) => {
         if (error.status === 429) {
-          // Redirect to a different page, maybe a rate limit warning page.
           this.router.navigate(['/error/429']);
         }
         console.log('Error fetching products:', error);
@@ -77,20 +63,29 @@ export class ListProductsComponent implements OnInit {
 
 
   goToProductId(id: any){
-    console.log('go to product id: ', id)
-
-    // this.productService.getProductId('product', this.userSessionStorage, this.userId, id).subscribe(item =>{
-    //   console.log('item : ', item)
-    // })
     this.router.navigate(['products/product/', id])
   }
+
   getSearchValue (){
-    console.log('search ', this.searchValue)
-    this.productService.getSearch('search', this.userSessionStorage, this.userId, this.searchValue)
+     this.productService.getSearch('search', this.userSessionStorage, this.userId, this.searchValue)
       .subscribe(
         items => {
           console.log('item product ',items);
-          // this.router.navigate(['/products/product-list']);
+          if (items?.length > 0){
+            // const ids = items.map(item => item.id).join(',');
+            // console.log('ids : ', ids)
+            // this.router.navigate(['/products/search-products'],  {queryParams: { ids }});
+            this.products = items;
+          } else {
+
+            this.message = 'nothing found ...';
+            setTimeout(()=>{
+              this.message = '';
+            }, 1000)
+            // TODO add dialog primeng
+            this.searchValue = '';
+          }
+
         },
         error => {
           console.log('Error:', error);

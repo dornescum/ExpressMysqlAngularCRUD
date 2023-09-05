@@ -1,17 +1,10 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const path = require("path");
 const logger = require("morgan");
 const cors = require("cors");
-const db = require("./db/config");
 const cookieParser = require('cookie-parser');
 const helmet = require("helmet");
 
-
-// Config .env file
-// dotenv.config({
-//   path: path.join(__dirname, `env/${process.env.NODE_ENV}.env`),
-// });
 
 // Initialize express app
 const app = express();
@@ -33,9 +26,7 @@ app.use((req, res, next) => {
     next();
 });
 
-
 app.use(cookieParser());
-
 
 // Middleware
 app.use(cors({
@@ -45,45 +36,16 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-
 // Router index
 const indexRouter = require("./routes/index");
 app.use("/", indexRouter);
 
-
 const PORT = process.env.PORT || 3000;
 const ENV = process.env.NODE_ENV || null;
 
-
-// app.use((req, res, next) => {
-//     console.log('Final headers:', res.getHeaders());
-//     next();
-// });
-
-
 app.listen(PORT, () => {
     console.log('port', PORT);
-    console.log(`Server is running on port ${PORT} using `);
+    console.log(`Server is running on port ${PORT} using  and env is "${ENV}"`);
 });
 
-// Health check
-// app.get("/", (req, res) => {
-//     // console.log(db)
-//     db.query(
-//         `SELECT AnswerText
-//          FROM Answers
-//          WHERE QuestionID = 1 AND IsCorrect = TRUE;
-//         `,
-//         (err, results) => {
-//             if (err) console.log(err);
-//             else res.json(results);
-//         }
-//     );
-//     // res.status(200).send("Health Check");
-//     // res.status(200).json({message: result});
-// });
 
-
-// <img src=x onerror=promote()>
-// <img src=x onerror=alert()>
-// <img src=x onerror=alert(); &gt;>

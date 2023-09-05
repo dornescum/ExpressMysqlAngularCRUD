@@ -33,15 +33,11 @@ export class TokenService {
 
   clearStorage(): void {
     sessionStorage.clear();
-    // TODO delete cookie
-    // this.deleteCookie("myCookie");
+    this.deleteCookie("jwtToken");
   }
 
   getCookie(name: string): string | null {
-    // console.log(document.cookie);
-
     const value = `; ${document.cookie}`;
-    // console.log('value', value)
     const parts = value.split(`; ${name}=`);
 
 
@@ -53,7 +49,6 @@ export class TokenService {
       return value.split(';')[0].split('=')[1] || null;
     }
 
-    console.log('value after ', value)
     return null;
   }
 

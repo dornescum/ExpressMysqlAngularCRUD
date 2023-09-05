@@ -11,8 +11,7 @@ import {TokenService} from "../../services/token.service";
 })
 export class ProfileComponent implements OnInit{
   error = '';
-  loading = false;
-  connectionErr='';
+
   uid!: User | null;
   user!: User;
   userId!: number | undefined;
@@ -26,14 +25,9 @@ export class ProfileComponent implements OnInit{
     this.uid = this.token.getUser();
     this.userId = this.uid?.id;
 
-    console.log('ss', this.userSessionStorage);
-    console.log('user', this.user);
-    console.log('user id', this.userId);
-    console.log('uid : ', this.uid);
     this.getUserProfile();
   }
 
   getUserProfile(){
-
   }
 }

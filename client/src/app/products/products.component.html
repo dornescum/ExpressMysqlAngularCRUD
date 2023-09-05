@@ -2,12 +2,6 @@
 <div class="flex justify-content-center  align-items-center my-0 xl:my-2">
   <h1>{{message}}</h1>
 </div>
-<!--<div class="card flex justify-content-center relative">-->
-<!--  <label for="">Seacrh</label>-->
-<!--  <input type="text" pInputText [(ngModel)]="searchValue" class="absolute top-0"/>-->
-<!--</div>-->
-
-
 <div class="flex justify-content-center  align-items-center mt-0 md:mt-2 xl:mt-0"  [ngClass]="message === ''? '':'hide'">
   <form (ngSubmit)="onSubmit()" [formGroup]="form" class="bg-gray-100 border-round-md p-4 md:p-2 xl:p-4 xl:pb-4">
     <div class="flex flex-column lg:flex-row">
@@ -41,15 +35,9 @@
         <p-dropdown [options]="categories" class="p-fluid" formControlName="category" optionLabel="category_name"></p-dropdown>
       </div>
     </div>
-
-
-<!--    <p-dropdown formControlName="city" [options]="cities" optionLabel="name"></p-dropdown>-->
-
     <div class=" md:mx-4 mt-4">
       <textarea class="w-17rem mt-4 lg:w-full" cols="30" formControlName="text" pInputTextarea rows="5"></textarea>
     </div>
-
-
     <div class="flex justify-content-center  align-items-center mt-2 md:mt-4 lg:mt-2">
       <p-button [style]="{'minWidth':'100%'}" label="Secondary" styleClass=" p-button-secondary" type="submit"
                 [disabled]="!form.valid"></p-button>

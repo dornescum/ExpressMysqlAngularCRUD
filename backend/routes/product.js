@@ -1,25 +1,11 @@
 'use strict'
 const express = require("express");
 const db = require("../db/config.js");
-// const util = require('util');
 const {check, validationResult} = require('express-validator');
-// const {validateCookie} = require("../middllware/cookieValidation");
 const jwt = require("jsonwebtoken");
 
 const {getBrandType, getCategoryNr} = require('../utils/utils');
 let sql;
-
-
-// function validateCookie(req, res, next){
-//     // console.log('cookie');
-//     console.log('cookie', req.cookies);
-//
-//     const {cookies} = req;
-//     console.log('cookies', cookies);
-//     next();
-// }
-
-let products = [];
 
 const router = express.Router();
 
@@ -39,8 +25,6 @@ router.post("/:uid", [
     }
     const userId = req.body.uid;
     console.log('rb : ', req.body);
-    // console.log('uid : ', userId);
-    // console.log('req : ', req);
     const obj = {
         favorite: req.body.favorite,
         price: req.body.price,
@@ -51,42 +35,21 @@ router.post("/:uid", [
         text: req.body.text,
         uid: req.body.uid
     };
-    // console.log('obj', obj)
-    // products.push(obj)
-    // console.log('products :', products)
     const {favorite, price, name, quantity, brand, category, text, uid, id} = req.body;
-    // console.log('fav ', favorite);
-    // console.log('brand ', brand);
-    // console.log('category ', category);
-    // console.log('uid ', uid);
-    console.log('favorite type : ', typeof favorite);
-    console.log('favorite : ', favorite);
+
 
     // FIXME make trigger for update codebar
     const brandNr = getBrandType(brand);
     const categoryNr = getCategoryNr(category);
-    // console.log('category nr ', categoryNr);
-    // console.log('brand nr ', brandNr);
     const favoriteStr = String(favorite) === "true" ? "true" : "false";
-
 
     const date = new Date().toISOString(); // "2023-09-03T12:50:12.159Z"
     const [year, month, day] = date.split('T')[0].split('-');
-    // Create codebar
-    // const codebar = `${favorite ? 1 : 0}${brandNr}${categoryNr}${new Date().toISOString()}${uid}`;
     const codebar = `${favorite ? 1 : 0}${brandNr}${categoryNr}${year}${day}${month}${uid}`;
-
-    // console.log('codebar ', codebar);
-    // const cleanedCodebar = codebar.replace(/[-:.ZT]/g, '');
-    // const cleanedCodebar = codebar.replace(/[-:.ZT]/g, '').replace(/-/g, '');
-
-    // console.log('cleanedCodebar', cleanedCodebar);
 
     sql = `INSERT INTO products(favorite, price, name, quantity, brand, category, text, uid, codebar) VALUES 
                             (?,?,?,?,?,?,?,?,?)`;
     db.query(sql, [favoriteStr, price, name, quantity, brandNr, categoryNr, text, uid, codebar], (err, result) => {
-        console.log('result add product ', result);
-        // console.log('error add product ', err);
         if (err) {
             console.error(err.message);
             return res.status(500).json({
@@ -100,34 +63,27 @@ router.post("/:uid", [
             message: "product response updated successfully",
         });
     });
-
-    // return res.status(200).json({message: 'works '});
 });
 
 // product uid
 router.get("/:uid",  (req, res) => {
     const token = req.headers['x-access-token'];
     // TODO create middleware for token
-    // console.log('TOKEN :', token)
 
     const uid = req.params.uid;
     const pid = req.params.pid;
 
     console.log('uid  :', uid)
-    // console.log('pid  :', pid)
     if (!token) return res.status(401).send("No token provided.");
 
     jwt.verify(token, 'secret', (err, decoded) => {
         if (err) return res.status(403).send("Invalid token.");
-        // res.status(200).send(products);
-        // sql = `SELECT * FROM products WHERE uid = ?`;
+
         sql = `SELECT * FROM products as p
                                  inner join brands b on p.brand = b.brand_id
                                  inner join categories c on p.category = c.category_id
                WHERE uid = ?`;
         db.query(sql,[uid], (err, result) => {
-            console.log('result get products for uid', result);
-            // console.log('error get product ', err);
             if (err) {
                 console.error(err.message);
                 res.status(500).json({ error: "Internal Server Error" });
@@ -149,26 +105,20 @@ router.get("/:uid",  (req, res) => {
 router.get("/:uid/:pid",  (req, res) => {
     const token = req.headers['x-access-token'];
     // TODO create middleware for token
-    // console.log('TOKEN :', token)
 
     const uid = req.params.uid;
     const pid = req.params.pid;
 
-    // console.log('uid  :', uid)
-    // console.log('pid  :', pid)
     if (!token) return res.status(401).send("No token provided.");
 
     jwt.verify(token, 'secret', (err, decoded) => {
         if (err) return res.status(403).send("Invalid token.");
-        // res.status(200).send(products);
-        // sql = `SELECT * FROM products WHERE uid = ? AND id = ?`;
         sql = `SELECT * FROM products as p
                                  inner join brands b on p.brand = b.brand_id
                                  inner join categories c on p.category = c.category_id
          WHERE uid = ? AND id = ?`;
         db.query(sql,[uid, pid], (err, result) => {
             console.log('result get product ', result);
-            // console.log('error get product ', err);
             if (err) {
                 console.error(err.message);
                 res.status(500).json({ error: "Internal Server Error" });
@@ -235,12 +185,6 @@ router.put("/:uid", [
             statusCode: 200,
         });
     });
-
-
-
-    // return res.status(200).json({
-    //     message: "received",
-    // });
 })
 
 
@@ -248,12 +192,10 @@ router.put("/:uid", [
 router.delete("/:uid/:pid", (req, res)=>{
     const pid = req.params.pid;
     const uid = req.params.uid;
-    console.log('pid : delete ', pid);
-    console.log('uid : delete ', uid);
+
     sql = `DELETE FROM products  WHERE uid = ? AND id = ?`;
 
     db.query(sql, [uid, pid], (err, result) => {
-        console.log('delete result ', result)
         if (err) {
             console.error(err.message);
             return res.status(500).json({
@@ -273,9 +215,6 @@ router.delete("/:uid/:pid", (req, res)=>{
             statusCode: 200,
         });
     });
-    // return res.status(200).json({
-    //     message: `deleted ${pid}`,
-    // });
 })
 
 module.exports = router;
