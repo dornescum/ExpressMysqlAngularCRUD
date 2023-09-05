@@ -23,7 +23,6 @@ export class AuthService {
   }
 
   login(credentials: {email: string; password: string}): Observable<any> {
-    console.log('auth service login', credentials,  { withCredentials: true })
     return this.api
       .postTypeRequest('login-user', {
         email: credentials.email,

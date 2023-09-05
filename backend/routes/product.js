@@ -24,7 +24,6 @@ router.post("/:uid", [
         return res.status(422).json({errors: errors.array()});
     }
     const userId = req.body.uid;
-    console.log('rb : ', req.body);
     const obj = {
         favorite: req.body.favorite,
         price: req.body.price,
@@ -73,7 +72,6 @@ router.get("/:uid",  (req, res) => {
     const uid = req.params.uid;
     const pid = req.params.pid;
 
-    console.log('uid  :', uid)
     if (!token) return res.status(401).send("No token provided.");
 
     jwt.verify(token, 'secret', (err, decoded) => {
@@ -118,7 +116,6 @@ router.get("/:uid/:pid",  (req, res) => {
                                  inner join categories c on p.category = c.category_id
          WHERE uid = ? AND id = ?`;
         db.query(sql,[uid, pid], (err, result) => {
-            console.log('result get product ', result);
             if (err) {
                 console.error(err.message);
                 res.status(500).json({ error: "Internal Server Error" });
@@ -147,25 +144,13 @@ router.put("/:uid", [
     const errors = validationResult(req);
 
     const {favorite, price, name, quantity, brand, category, text, uid, pid} = req.body;
-    console.log('price put server', favorite)
-    console.log('price put server', price)
-    console.log('price put server', name)
-    console.log('price put server', quantity)
-    console.log('price put server', brand)
-    console.log('price put server', category)
-    console.log('price put server', text)
-    console.log('price put server', uid)
-    console.log('price put server', pid)
-    console.log('price put server', req.body)
 
     const brandNr = getBrandType(brand);
     const categoryNr = getCategoryNr(category);
-    console.log('category nr ', categoryNr);
 
     const sql = `UPDATE products SET favorite = ?, price = ?, name = ?, quantity = ?, brand = ?, category = ?, text = ?, uid = ?
                 WHERE id = ?`;
     db.query(sql, [favorite, price, name, quantity, brand, category, text, uid, pid], (err, result) => {
-        console.log('update result ', result)
         if (err) {
             console.error(err.message);
             return res.status(500).json({

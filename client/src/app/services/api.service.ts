@@ -16,18 +16,14 @@ export class ApiService {
   getTypeRequest(url: string) {
     return this.http.get(`${this.baseUrl}${url}`).pipe(
       map((res) => {
-        console.log('type req', res);
         return res;
       })
     );
   }
 
   postTypeRequest(url: string, payload: any, options?: any) {
-    console.log('op : ', options)
     return this.http.post(`${this.baseUrl}${url}`, payload, options).pipe(
       map((res) => {
-        console.log('response from post register', res);
-        console.log('response from POST service register payload', payload);
         return res;
       })
     );
@@ -57,8 +53,7 @@ export class ApiService {
   postQuestionsId(url: string, id: any, payload: any) {
     return this.http.post(`${this.baseUrl}${url}/${id}`, payload).pipe(
         map((res) => {
-          // console.log('response from post register', res);
-          console.log('response from POST service register payload', payload);
+
           return res;
         })
     );
@@ -68,8 +63,6 @@ export class ApiService {
     postQuestionsIdResponse(url: string, id: any, payload: any) {
         return this.http.post(`${this.baseUrl}${url}/${id}`, payload).pipe(
             map((res) => {
-                // console.log('response from post register', res);
-                console.log('response from POST service register payload', payload);
                 return res;
             })
         );

@@ -5,7 +5,8 @@
       <form  [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="flex flex-column">
         <div class="mb-1">
           <label for="formFile" class="form-label mr-4">Upload Img</label>
-          <input type="file" class="form-control my-btn" id="formFile"   formControlName="img"  (change) = "imageUpload($event)" >
+          <input type="file" class="form-control my-btn" id="formFile"
+                 formControlName="img"  (change) = "imageUpload($event)" >
         </div>
         <div>
           <button pButton type="submit" icon="pi pi-check"

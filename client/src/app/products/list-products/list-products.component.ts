@@ -42,9 +42,6 @@ export class ListProductsComponent implements OnInit {
   getProducts(){
     this.loading = true;
     this.productService.getAllProducts('product', this.userSessionStorage, this.userId).subscribe((items:  Product[]) =>{
-      console.log('items', items)
-      console.log('items', items?.length)
-
         if (items?.length === undefined){
           this.message = 'No products';
         }
@@ -73,7 +70,6 @@ export class ListProductsComponent implements OnInit {
           console.log('item product ',items);
           if (items?.length > 0){
             // const ids = items.map(item => item.id).join(',');
-            // console.log('ids : ', ids)
             // this.router.navigate(['/products/search-products'],  {queryParams: { ids }});
             this.products = items;
           } else {

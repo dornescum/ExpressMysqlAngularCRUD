@@ -47,7 +47,6 @@ export class ProductComponent implements OnInit{
 
   getProduct(){
     this.productService.getProductId('product', this.userSessionStorage, this.userId, this.pid).subscribe(item =>{
-      console.log('item : ', item)
       this.product = item;
         this.name = this.product.name;
         this.price = this.product.price;

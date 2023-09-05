@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit{
         {
           label: 'Img',
           icon: 'pi pi-user',
-          routerLink: '/img-testing?' // disabled !!!
+          routerLink: '/img-testing@' // disabled !!!
         },
         {
           label: 'Logout',
