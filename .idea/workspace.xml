@@ -5,60 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97993ee-894e-4252-acfd-a5db13e750ac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/uploads/product-1693903374622.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/products/search-products/search-products.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/products/search-products/search-products.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/products/search-products/search-products.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/products/search-products/search-products.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a036f93f-95eb-4a08-befa-7eeca969af90.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a036f93f-95eb-4a08-befa-7eeca969af90.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_08_2023,_19_08_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_08_2023__19_08__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/brands.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/brands.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/categories.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/ionic-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/ionic-app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/modules.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/modules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/api-feature/api-feature-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/api-feature/api-feature-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/api-feature/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/api-feature/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/api-feature/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/api-feature/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/profile/profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/profile/profile.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/profile/profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/UI/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/components/models/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/components/models/products.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/home/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/home/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/home/question/question.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/question/question.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/home/question/question.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/question/question.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/home/quiz-type/quiz-type.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/quiz-type/quiz-type.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/home/quiz-type/quiz-type.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/quiz-type/quiz-type.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/img-testing/img-testing.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/img-testing/img-testing.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/img-testing/img-testing.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/img-testing/img-testing.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/products/list-products/list-products.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/list-products/list-products.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/products/list-products/list-products.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/list-products/list-products.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/products/product/product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/product/product.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/products/product/product.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/product/product.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/products/products-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/products-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/products/products.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/products.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/products/products.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/products.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/products/products.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/products.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/api.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/auth-cookie.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/auth-cookie.guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/auth-guard.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/auth-guard.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/product.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/token.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/token.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +63,7 @@
     &quot;database.data.extractors.current.export.id&quot;: &quot;SQL-Insert-Multirow.sql.groovy&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.17.1&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.18.48&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mihaid/Documents/PERSONAL/angular/QUIZ/quizExpressMysqlAngular&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mihaid/Documents/PERSONAL/MD/Mihai-Dornescu&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -174,7 +122,10 @@
       <workItem from="1693618636539" duration="20952000" />
       <workItem from="1693810998387" duration="664000" />
       <workItem from="1693811862818" duration="11541000" />
-      <workItem from="1693894128030" duration="8473000" />
+      <workItem from="1693894128030" duration="10962000" />
+      <workItem from="1693908792257" duration="746000" />
+      <workItem from="1693920510562" duration="10000" />
+      <workItem from="1693920625779" duration="303000" />
     </task>
     <servers />
   </component>

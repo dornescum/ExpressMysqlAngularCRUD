@@ -30,7 +30,8 @@ app.use(cookieParser());
 
 // Middleware
 app.use(cors({
-    origin: "http://localhost:4200", credentials: true
+    origin: "http://localhost:4200", credentials: true,
+    // origin: "*", credentials: true
 }));
 app.use(logger("dev"));
 app.use(express.json());
