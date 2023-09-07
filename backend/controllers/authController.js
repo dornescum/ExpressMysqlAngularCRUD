@@ -10,7 +10,7 @@ const secret = process.env.SECRET;
 
 const app = express();
 
-app.use(express.json()); // Parse JSON request bodies
+app.use(express.json());
 
 const {check} = require('express-validator');
 //
