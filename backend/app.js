@@ -44,6 +44,7 @@ app.use("/", indexRouter);
 const PORT = process.env.PORT || 3000;
 const ENV = process.env.NODE_ENV || null;
 
+
 app.listen(PORT, () => {
     console.log('port', PORT);
     console.log(`Server is running on port ${PORT} using  and env is "${ENV}"`);
