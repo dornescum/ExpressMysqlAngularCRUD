@@ -11,6 +11,12 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit{
   formGroup!: FormGroup;
+  /**
+   * @param email: string
+   * @param password: string
+   * @param error: string
+   * @param loading: string
+   */
   email = '';
   password = '';
   error = '';
@@ -31,6 +37,10 @@ export class LoginComponent implements OnInit{
     this.router.navigate(['auth/register']);
   }
 
+  /**
+   * @implements: auth.login
+   * @description: error handling for user input on email and password with redirect for success or error message
+   */
   onSubmit(): void {
     this.loading = true;
     this.error = '';

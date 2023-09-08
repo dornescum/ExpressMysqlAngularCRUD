@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c97993ee-894e-4252-acfd-a5db13e750ac" name="Changes" comment="" />
+    <list default="true" id="c97993ee-894e-4252-acfd-a5db13e750ac" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a036f93f-95eb-4a08-befa-7eeca969af90.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a036f93f-95eb-4a08-befa-7eeca969af90.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/login/login.component.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,9 +63,9 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "database.data.extractors.current.export.id": "SQL-Insert-Multirow.sql.groovy",
-    "javascript.nodejs.core.library.configured.version": "16.17.1",
+    "javascript.nodejs.core.library.configured.version": "16.20.1",
     "javascript.nodejs.core.library.typings.version": "16.18.48",
-    "last_opened_file_path": "C:/Users/mihaid/Documents/PERSONAL/APP/image-resizer-electron-main/image-resizer-electron-main",
+    "last_opened_file_path": "/Users/mihaidornescu/Documents/PERSONAL/Angular/quiz",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,7 +73,7 @@
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\mihaid\\Documents\\PERSONAL\\angular\\QUIZ\\quizExpressMysqlAngular\\client\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "/Users/mihaidornescu/Documents/PERSONAL/Angular/quiz/client/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -126,6 +130,7 @@
       <workItem from="1693920625779" duration="303000" />
       <workItem from="1694094130843" duration="1486000" />
       <workItem from="1694158397508" duration="3040000" />
+      <workItem from="1694184484408" duration="315000" />
     </task>
     <servers />
   </component>
