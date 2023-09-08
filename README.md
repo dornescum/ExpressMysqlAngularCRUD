@@ -7,4 +7,9 @@
 > It uses express v4.18.2 and integrates additional packages for security like Helmet, rate-limiting, and JSON Web Tokens for authentication. <br/>
 > It also uses MySQL as its database through the mysql2 package. Both projects are set up for development with respective dev tools.
 > 
-> ![Alt Text](./assets/todo.jpeg)
+
+> ![Alt Text](./client/src/assets/login.png)
+> ![Alt Text](./client/src/assets/add.png)
+> ![Alt Text](./client/src/assets/products.png)
+> ![Alt Text](./client/src/assets/pagination.png)
+> ![Alt Text](./client/src/assets/product.png)
