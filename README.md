@@ -1,4 +1,4 @@
-# quizAngularExpressMysql
+# Angular Express Mysql CRUD
 
 
 > The Angular project  v16.2.0 for the core framework, along with PrimeNG and PrimeFlex for UI components and layout .<br/> 
