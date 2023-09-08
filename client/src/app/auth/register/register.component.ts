@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit{
       this.error = 'Make sure to fill everything ;)';
     }
     else if(this.password !== this.confirmPassword){
-      this.error = 'Passwords need to match';
+      this.error = 'Passwords need to match!';
     }
     else {
       this.auth

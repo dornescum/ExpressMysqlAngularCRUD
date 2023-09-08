@@ -31,7 +31,6 @@ let sql;
 const router = express.Router();
 
 router.post("/:uid",  upload.single('product'), (req, res)=>{
-    // console.log('req ', req);
     if (req.file) {
         res.json({ msg: 'img works' });
     } else {

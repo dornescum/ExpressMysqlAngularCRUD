@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-products.component.scss']
 })
 export class SearchProductsComponent {
-
+  // TODO
 }

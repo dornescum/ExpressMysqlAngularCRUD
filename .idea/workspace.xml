@@ -5,12 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97993ee-894e-4252-acfd-a5db13e750ac" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a036f93f-95eb-4a08-befa-7eeca969af90.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a036f93f-95eb-4a08-befa-7eeca969af90.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_08_2023,_15_27_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_08_2023__15_27__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/authController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/sqlInitial.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/sqlInitial.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/workBackup/choices.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/workBackup/module.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/workBackup/questions.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/auth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/modules.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/modules.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/auth/profile/profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/profile/profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/auth/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/profile/profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/auth/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/error/error.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/error/error.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/home/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/home/question/question.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/question/question.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/home/result/result.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/home/result/result.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/page-not-found/page-not-found.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/page-not-found/page-not-found.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/products/list-products/list-products.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/list-products/list-products.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/products/product/product.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/product/product.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/products/search-products/search-products.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/products/search-products/search-products.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +91,7 @@
     &quot;database.data.extractors.current.export.id&quot;: &quot;SQL-Insert-Multirow.sql.groovy&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.17.1&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.18.48&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mihaid/Documents/PERSONAL/MD/Mihai-Dornescu&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mihaid/Documents/PERSONAL/UDEMY/traversy-js-challenges&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -131,7 +154,8 @@
       <workItem from="1693908792257" duration="746000" />
       <workItem from="1693920510562" duration="10000" />
       <workItem from="1693920625779" duration="303000" />
-      <workItem from="1694094130843" duration="377000" />
+      <workItem from="1694094130843" duration="1486000" />
+      <workItem from="1694158397508" duration="2709000" />
     </task>
     <servers />
   </component>

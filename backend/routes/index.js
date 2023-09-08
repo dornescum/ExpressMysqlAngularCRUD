@@ -8,7 +8,6 @@ const productLimiter = rateLimit({
     max: 100, // limit  IP to 100 requests per windowMs
 });
 
-const authRoute = require("./auth");
 const register = require('./register');
 const login = require('./login');
 const modules = require('./modules');
@@ -21,16 +20,15 @@ const api= require('./api');
 const search= require('./search');
 
 
-router.use("/api/v1/auth", authRoute);
 router.use("/api/v1/register", register);
 router.use("/api/v1/login-user", login);
-router.use("/api/v1/modules", modules);
+// router.use("/api/v1/modules", modules);
 router.use("/api/v1/ionic-app", ionic);
 router.use("/api/v2/product", productLimiter, product)
 router.use("/api/v1/profile", profile);
 router.use("/api/v2/categories", categories);
 router.use("/api/v2/brands", brands);
-router.use("/api/v1/api", productLimiter, api);
+router.use("/api/v1/api",  api);
 router.use("/api/v2/search",  search);
 
 

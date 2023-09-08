@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./result.component.scss']
 })
 export class ResultComponent {
-
+// TODO
 }

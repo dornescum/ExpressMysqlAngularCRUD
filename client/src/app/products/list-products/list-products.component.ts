@@ -16,7 +16,6 @@ import {ProductService} from "../../services/product.service";
 export class ListProductsComponent implements OnInit {
   user!: User;
   userId!: number | undefined;
-  // productId!: any;
   products: Product[]= [];
   userSessionStorage!: string;
   message:string = '';

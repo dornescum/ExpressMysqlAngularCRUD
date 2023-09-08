@@ -59,10 +59,6 @@ export class ProductComponent implements OnInit{
     })
   }
 
-  // toggleEdit() {
-  //   this.isEditable = !this.isEditable;
-  // }
-
   updateProduct(){
     const updatedProduct: Product = {
       favorite: this.favorite ,

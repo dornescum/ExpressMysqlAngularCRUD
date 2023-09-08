@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit{
   password = '';
   error = '';
   loading = false;
-  // connectionErr='';
 
   constructor(private router: Router, private auth: AuthService) {}
 
@@ -50,7 +49,6 @@ export class LoginComponent implements OnInit{
           (err) => {
             if (err.status === 0){}
             this.error = `Server is down ... sorry 😓`;
-            console.log('error ', this.error)
             this.loading = false;
           }
         );

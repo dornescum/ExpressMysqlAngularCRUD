@@ -52,7 +52,6 @@ router.post("/", [
                                 password: hashedPassword
                             }
                             const token = jwt.sign( newUser, secret);
-                            console.log('token : ', token)
                             return res.status(200).json({
                                 data: result,
                                 message: "You have successfully registered.",

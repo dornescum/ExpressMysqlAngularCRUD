@@ -22,7 +22,6 @@ router.post("/", [
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        // If there are validation errors, return them as a response
         return res.status(422).json({ errors: errors.array() });
     }
 

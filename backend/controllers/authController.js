@@ -73,10 +73,9 @@ loginUser = async (params) => {
             }
 
             if (result.length > 0) {
-                const {id, email} = result;
+                // const {id, email} = result;
 
                 const token = jwt.sign({data: result}, secret);
-                console.log('token auth controller: ', token);
                 // cookie('jwtToken', token, { httpOnly: true, maxAge: 90000 });
                 // result.cookie('jwtToken', token, { httpOnly: true, maxAge: 90000 });
 

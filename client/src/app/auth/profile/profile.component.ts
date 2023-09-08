@@ -11,7 +11,6 @@ import {TokenService} from "../../services/token.service";
 })
 export class ProfileComponent implements OnInit{
   error = '';
-
   uid!: User | null;
   user!: User;
   userId!: number | undefined;
@@ -29,5 +28,6 @@ export class ProfileComponent implements OnInit{
   }
 
   getUserProfile(){
+    // TODO
   }
 }

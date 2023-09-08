@@ -1,10 +1,9 @@
 'use strict'
-
 const express = require("express");
 const db = require("../db/config.js");
 const router = express.Router();
 
-let questionsId = [];
+// let questionsId = [];
 
 
 router.get("/", (req, res) => {
@@ -96,7 +95,6 @@ router.post("/:id", (req, res) => {
                 });
             });
         } else {
-            // If the user's quiz response doesn't exist, insert a new record
             const insertSql = "INSERT INTO user_quiz (userid, question_id, score) VALUES (?, ?, ?)";
             db.query(insertSql, [userId, questionId, response], (insertErr, insertResult) => {
                 if (insertErr) {

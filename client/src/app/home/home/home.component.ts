@@ -41,7 +41,6 @@ export class HomeComponent implements OnInit{
 
   goToModule(e: number){
     const  filterId = this.modules.find((el: any) => el.module_id === e)
-    console.log(filterId)
     const id = filterId?.module_id;
     this.router.navigate(['/quiz/quiz-type', id]);
   }

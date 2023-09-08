@@ -214,34 +214,3 @@ module.exports = router;
 // //
 // DELIMITER ;
 
-// node modificat pr procedura
-// router.get("/:uid", (req, res) => {
-//     const token = req.headers['x-access-token'];
-//
-//     console.log('TOKEN :', token);
-//
-//     const uid = req.params.uid;
-//
-//     if (!token) return res.status(401).send("No token provided.");
-//
-//     jwt.verify(token, 'secret', (err, decoded) => {
-//         if (err) return res.status(403).send("Invalid token.");
-//
-//         // Call the stored procedure
-//         const sql = "CALL GetProductsByUID(?)";
-//         db.query(sql, [uid], (err, result) => {
-//             console.log('result get product ', result[0]);
-//             console.log('error get product ', err);
-//             if (err) {
-//                 console.error(err.message);
-//                 res.status(500).json({ error: "Internal Server Error" });
-//             }
-//             else if(result[0].length < 1){
-//                 res.status(204).json({ message: "No content" });
-//             }
-//             else {
-//                 res.status(200).json(result[0]);
-//             }
-//         });
-//     });
-// });
